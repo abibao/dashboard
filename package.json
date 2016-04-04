@@ -1,0 +1,29 @@
+{
+  "name": "dashboard",
+  "version": "1.0.0",
+  "description": "Abibao dashboard MVP",
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/abibao/dashboard.git"
+  },
+  "keywords": [
+    "dashboard",
+    "mvp",
+    "abibao"
+  ],
+  "author": "team abibao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/abibao/dashboard/issues"
+  },
+  "homepage": "https://gitlab.com/abibao/dashboard#README",
+  "engines": {
+    "node": ">=5.5"
+  },
+  "dependencies": {
+    "hapi": "13.3.0",
+    "inert": "3.2.0",
+    "nconf": "0.8.4"
+  },
+  "devDependencies": {}
+}
