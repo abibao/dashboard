@@ -26,12 +26,28 @@ server.register(Inert, function () {});
 
 server.route({
   method: 'GET',
-  path: '/{param*}',
+  path: '/{path*}',
+  handler: {
+    file: './www/index.html'
+  }
+});
+
+server.route({
+  method: 'GET',
+  path: '/assets/{path*}',
   handler: {
     directory: {
-      path: path.normalize(path.resolve(__dirname, "www")),
-      defaultExtension: "html",
-      index: true
+      path: './www/assets/'
+    }
+  }
+});
+
+server.route({
+  method: 'GET',
+  path: '/images/{path*}',
+  handler: {
+    directory: {
+      path: './www/images/'
     }
   }
 });
