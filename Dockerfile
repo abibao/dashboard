@@ -2,9 +2,9 @@ FROM mhart/alpine-node:5.5
 
 MAINTAINER Gilles Perreymond <gperreymond@gmail.com>
 
-RUN mkdir -p /usr/app
-RUN mkdir -p /usr/app/dist
-RUN mkdir -p /usr/app/src
+RUN mkdir -p /usr/app && \
+  mkdir -p /usr/app/dist && \
+  mkdir -p /usr/app/src
 WORKDIR /usr/app
 
 COPY index.js /usr/app/
@@ -12,7 +12,7 @@ COPY package.json /usr/app/
 COPY gulpfile.js /usr/app/
 ADD src /usr/app/src
 
-RUN apk add --update make git gcc g++ python && \
+RUN apk add --update make git libpng-dev gcc g++ python && \
   npm install && \
   npm install -g gulp bower && \
   gulp build && \
@@ -21,7 +21,7 @@ RUN apk add --update make git gcc g++ python && \
   npm uninstall -g gulp bower && \
   npm install --production && \
   npm uninstall -g npm && \
-  apk del make git gcc g++ python && \
+  apk del make git libpng-dev gcc g++ python && \
   rm -rf /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp
 
 EXPOSE 80
