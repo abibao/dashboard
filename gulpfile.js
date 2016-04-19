@@ -17,27 +17,6 @@ var templateCache = require('gulp-angular-templatecache');
 var ngAnnotate = require('gulp-ng-annotate');
 var runSequence = require('run-sequence');
 var del = require('del');
-var Server = require('karma').Server;
-var GulpSSH = require('gulp-ssh');
-var zip = require('gulp-zip');
-var slack = require('gulp-slack')({
-    url: 'https://hooks.slack.com/services/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',
-    channel: '#frontend-build',
-    user: 'gulp build',
-    icon_emoji: ':rocket:'
-});
-
-var config = {
-    host: 'littlefunnyapp.com',
-    port: 22,
-    username: 'maxbook',
-    password: 'Max150409'
-}
-
-var gulpSSH = new GulpSSH({
-    ignoreErrors: false,
-    sshConfig: config
-});
 
 function handleError(err) {
     console.log(err.message);
@@ -99,13 +78,6 @@ gulp.task('connect', function() {
         livereload: true,
         fallback: files.dev.indexHtml
     });
-});
-
-gulp.task('test', function(done) {
-    return new Server({
-        configFile: __dirname + '/karma.conf.js',
-        singleRun: true
-    }, done).start();
 });
 
 gulp.task('reload', function() {
@@ -201,34 +173,8 @@ gulp.task('build:del-previous', function() {
     });
 });
 
-gulp.task('deploy', function() {
-    return gulp.src('dist/**/*')
-        .pipe(gulpSSH.dest('/home/maxbook/production/static/abibao-mvp/dist/'));
-});
-
-gulp.task('deploy:slack', function() {
-    slack([{
-        'fallback': 'Dernière build disponible !',
-        'pretext': 'Dernière build disponible !',
-        'fields': [{
-            'title': 'Url du site',
-            'value': 'Voir l\'application <http://abibao.littlefunnyapp.com|ici>'
-        },{
-            'title': 'Zip de la build',
-            'value': 'À télécharger <http://abibao.littlefunnyapp.com/dist.zip|ici>'
-        }]
-    }]);
-});
-
-gulp.task('build:zip', function() {
-    return gulp.src('dist/**/*')
-        .pipe(zip('dist.zip'))
-        .pipe(gulp.dest('dist'));
-});
-
 gulp.task('build', function(callback) {
     runSequence(
-        // 'test',
         'build:del-previous',
         'build:angular-template-cache',
         'build:script',
@@ -236,9 +182,6 @@ gulp.task('build', function(callback) {
         'build:concat-src',
         'build:del-tmp',
         'assets',
-        // 'build:zip',
-        // 'deploy',
-        // 'deploy:slack',
         callback
     );
 });
