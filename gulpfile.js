@@ -236,9 +236,9 @@ gulp.task('build', function(callback) {
         'build:concat-src',
         'build:del-tmp',
         'assets',
-        'build:zip',
-        'deploy',
-        'deploy:slack',
+        // 'build:zip',
+        // 'deploy',
+        // 'deploy:slack',
         callback
     );
 });
