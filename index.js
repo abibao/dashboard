@@ -1,16 +1,16 @@
-'use strict';
+'use strict'
 
-var path = require('path');
-var Hapi = require("hapi");
-var Inert = require('inert');
+var path = require('path')
+var Hapi = require('hapi')
+var Inert = require('inert')
 
-var nconf = require("nconf");
-nconf.argv().env().file({ file: 'nconf-env.json' });
+var nconf = require('nconf')
+nconf.argv().env().file({ file: 'nconf-env.json' })
 
 var options = {
-  host: nconf.get("ABIBAO_DASHBOARD_EXPOSE_IP"),
-  port: nconf.get("ABIBAO_DASHBOARD_EXPOSE_PORT")
-};
+  host: nconf.get('ABIBAO_DASHBOARD_EXPOSE_IP'),
+  port: nconf.get('ABIBAO_DASHBOARD_EXPOSE_PORT')
+}
 
 var server = new Hapi.Server({
   debug: false,
@@ -19,42 +19,42 @@ var server = new Hapi.Server({
       cors: true
     }
   }
-});
+})
 
-server.connection(options);
-server.register(Inert, function () {});
+server.connection(options)
+server.register(Inert, function () {})
 
 server.route({
   method: 'GET',
   path: '/{path*}',
   handler: {
-    file: './www/index.html'
+    file: './dist/index.html'
   }
-});
+})
 
 server.route({
   method: 'GET',
   path: '/assets/{path*}',
   handler: {
     directory: {
-      path: './www/assets/'
+      path: './dist/assets/'
     }
   }
-});
+})
 
 server.route({
   method: 'GET',
   path: '/images/{path*}',
   handler: {
     directory: {
-      path: './www/images/'
+      path: './dist/images/'
     }
   }
-});
+})
 
 server.start(function(err) {
   if (err) {
-    return console.dir(err);
+    return console.dir(err)
   }
-  console.log('server running at:', server.info.uri);
-});
+  console.log('server running at:', server.info.uri)
+})
