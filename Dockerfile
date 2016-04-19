@@ -2,13 +2,15 @@ FROM mhart/alpine-node:5.5
 
 MAINTAINER Gilles Perreymond <gperreymond@gmail.com>
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+RUN mkdir -p /usr/app
+RUN mkdir -p /usr/app/dist
+RUN mkdir -p /usr/app/src
+WORKDIR /usr/app
 
-COPY index.js /usr/src/app/
-COPY package.json /usr/src/app/
-COPY gulpfile.js /usr/src/app/
-ADD src /usr/src/app/src
+COPY index.js /usr/app/
+COPY package.json /usr/app/
+COPY gulpfile.js /usr/app/
+ADD src /usr/app/src
 
 RUN apk add --update make git gcc g++ python && \
   npm install && \
