@@ -25,4 +25,4 @@ RUN apk add --update make bash git libpng-dev gcc g++ python && \
   rm -rf /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp
 
 EXPOSE 80
-CMD node .
+CMD node index.js
