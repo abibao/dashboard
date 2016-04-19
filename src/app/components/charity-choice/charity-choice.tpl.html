@@ -1,0 +1,46 @@
+<section class="container" id="charity-choice">
+  <section class="forms-container">
+    <section class="form-wrapper">
+      <header>
+        <h1>Quelle association souhaitez-vous soutenir ?</h1>
+      </header>
+      <div class="form-body">
+        <div id="charity-choice-wrapper">
+          <div id="charity-choice-side">
+            <ul id="charity-choice-list">
+              <li class="charity-choice-list-item" ng-repeat="charity in charities" >
+                <div class="charity-choice-list-item-wrapper" ng-class="{'selected': charity.urn == selected_charity.urn}" ng-click="selectCharity(charity)">
+                  <img class="charity-choice-list-item-icon" ng-src="{{charity.icon}}">
+                  <div class="charity-choice-list-item-name">{{charity.title}}</div>
+                  <div class="charity-choice-list-item-check"></div>
+                </div>
+                <div class="charity-choice-list-item-caret">
+                  <img src="assets/img/caret_right.png" alt="" / ng-show="(charity.urn == selected_charity.urn)">
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div id="charity-choice-content">
+            <div id="charity-choice-content-title">
+              {{selected_charity.title}}
+            </div>
+            <img id="charity-choice-content-picture" ng-src="{{selected_charity.picture}}">
+            <div id="charity-choice-content-hangs">
+              {{selected_charity.hangs}}
+            </div>
+            <div id="charity-choice-content-description">
+              {{selected_charity.description}}
+            </div>
+            <div id="charity-choice-content-usages-title">
+              À quoi vont servir les dons :
+            </div>
+            <ul id="charity-choice-content-usages">
+              <li ng-repeat="usage in selected_charity.usages"><i class="fa fa-check" aria-hidden="true"></i> {{usage}}</li>
+            </ul>
+            <a href="{{selected_charity.url}}" id="charity-choice-content-url" target="_blank">{{selected_charity.url}}</a>
+          </div>
+        </div>
+        <div class="button" ng-click="sumbitSelectedCharity()">Valider</div>
+      </div>
+    </section>
+</section>

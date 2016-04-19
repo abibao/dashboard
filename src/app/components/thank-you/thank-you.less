@@ -1,0 +1,55 @@
+#thank-you {}
+.message-page {
+  .form-body {
+    text-align: center;
+    #message-page-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      margin-bottom: 20px;
+      .message-page-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1em;
+        padding: 0px 40px;
+        .message-page-col-thumb{
+          width: 110px;
+          height: 110px;
+          background: #FFF;
+          border-radius: 500px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 20px;
+        }
+        .message-page-col-title{
+          color: @color-abibao-grey;
+          font-size: 1.5em;
+          line-height: 1.3em;
+          margin-bottom: 15px;
+        }
+        .message-page-col-description{
+          text-align: justify;
+        }
+        &.col-2{
+          width: 50%;
+        }
+      }
+    }
+    .button {
+      padding: 22px 65px;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .under-button{
+      padding-top: 15px;
+      color: @color-abibao-grey;
+      font-size: .9em;
+      font-style: oblique;
+      b{
+        font-weight: 900;
+      }
+    }
+  }
+}

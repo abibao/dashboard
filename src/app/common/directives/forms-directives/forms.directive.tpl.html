@@ -1,0 +1,43 @@
+<!--
+ABIBAO_COMPONENT_MULTIPLE_CHOICE
+ABIBAO_COMPONENT_NUMBER
+ABIBAO_COMPONENT_DROPDOWN
+
+ABIBAO_COMPONENT_SHORT_TEXT
+ABIBAO_COMPONENT_LONG_TEXT
+ABIBAO_COMPONENT_YES_NO
+ -->
+
+<section class="forms-container">
+  <section class="form-wrapper" ng-class="{reverse:reverse}">
+    <header>
+      <img
+        ng-if="progress.current > 1"
+        class="form-nav previous"
+        src="assets/img/survey/fleche_retour.png"
+        srcset="assets/img/survey/fleche_retour@2x.png 2x,
+              assets/img/survey/fleche_retour@3x.png 3x"
+        alt=""
+        ng-click="previous()"/>
+      <img
+        ng-if="progress.maxIndex > progress.current"
+        class="form-nav next"
+        src="assets/img/survey/fleche_suivant.png"
+        srcset="assets/img/survey/fleche_suivant@2x.png 2x,
+              assets/img/survey/fleche_suivant@3x.png 3x"
+        alt=""
+        ng-click="next()"/>
+      <h1>{{item.question}}</h1>
+      <h2>{{item.description}}</h2>
+    </header>
+    <div class="form-body">
+      <div ng-switch="item.type">
+        <div ng-switch-when="ABIBAO_COMPONENT_NUMBER" form-number></div>
+        <div ng-switch-when="ABIBAO_COMPONENT_MULTIPLE_CHOICE" form-multiple-choice></div>
+        <div ng-switch-when="ABIBAO_COMPONENT_DROPDOWN" form-dropdown></div>
+        <div ng-switch-when="ABIBAO_COMPONENT_YES_NO" form-yes-no></div>
+        <div ng-switch-when="ABIBAO_COMPONENT_SHORT_TEXT" form-text></div>
+      </div>
+    </div>
+  </section>
+</section>

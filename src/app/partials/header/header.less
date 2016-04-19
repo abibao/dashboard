@@ -1,0 +1,50 @@
+// HEADER
+header{
+  position: relative;
+  height: 120px;
+  #header-wrapper{
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    height: 100%;
+    padding: 30px 10px;
+    background: @color-abibao-grey;
+    color: #FFF;
+    clip-path: polygon(100% 70px,100% 0px,0px 0px,0px 100%);
+    nav{
+      float: right;
+      ul{
+        list-style: none;
+        li{
+          display: inline;
+          padding: 8px 13px;
+          line-height: 0;
+          a{
+            color: #FFF;
+            text-decoration: none;
+          }
+          &#signin{
+            background: #FFF;
+            border-radius: 4px;
+            margin-left: 13px;
+            a{
+              color: @color-abibao-blue;
+              font-weight: 700;
+            }
+          }
+        }
+      }
+    }
+  }
+  #header-blue-border{
+    position: absolute;
+    z-index: 0;
+    background: @color-abibao-blue;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 100%;
+    clip-path: polygon(100% 110px,100% 0px,0px 0px,0px 30%);
+
+  }
+}

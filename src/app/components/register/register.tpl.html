@@ -1,0 +1,36 @@
+<section class="container">
+  <section class="forms-container">
+    <section class="form-wrapper reverse" ng-if="step == 1">
+      <header>
+        <h1>Vous êtes quelqu'un d'incroyable</h1>
+        <h2>Le monde caricatif à besoin de gens comme vous !</h2>
+      </header>
+      <div class="form-body">
+        <form class="form-text" name="formRegisterMail" ng-submit="submitFormRegisterMail()" novalidate>
+          <label>Votre e-mail pour être alerté des sondages à venir :</label>
+          <input type="email" ng-model="userCredentials.email" ng-required="true" placeholder="mon email" />
+          <div class="form-next-wrapper">
+            <!-- <div class="left-col" id="register-mail">TEST</div> -->
+            <button class="button" type="submit" ng-disabled="formRegisterMail.$invalid" />Valider</button>
+          </div>
+        </form>
+      </div>
+
+    </section>
+
+    <section class="form-wrapper reverse" ng-if="step == 2">
+      <header>
+        <h1>Créez votre mot de passe</h1>
+        <h2>Pour un mot de passe efficace, 6 caractères minimum ;)</h2>
+      </header>
+      <div class="form-body">
+        <form class="form-text" name="formRegisterPassword" ng-submit="submitFormRegisterPassword()" novalidate>
+          <input type="password" ng-model="userCredentials.password" ng-required="true" placeholder="Mon mot de passe" ng-minlength="6" />
+          <div class="form-next-wrapper">
+            <button class="button" type="submit" ng-disabled="formRegisterPassword.$invalid" />Valider</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </section>
+</section>
