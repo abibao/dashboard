@@ -13,6 +13,8 @@
             case 401:
               window.location = '/login';
               break;
+            case 400:
+              break;
             default:
               window.location = '/404';
           }

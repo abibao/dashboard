@@ -28,6 +28,8 @@
           password2:$scope.userCredentials.password
         }, function(res) {
           userIsRegistered();
+        }, function(err) {
+          alert(err.data.message);
         }
       );
     }
