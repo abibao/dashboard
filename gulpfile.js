@@ -146,6 +146,7 @@ gulp.task('build:angular-template-cache', function() {
         .pipe(gulp.dest('src/app'));
 });
 
+
 gulp.task('build:inject-dependency', function() {
     return gulp.src(files.dev.indexHtml)
         .pipe(inject(gulp.src([files.dev.css + '/*.css', files.dev.js + '/app.min.js'], {
