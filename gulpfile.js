@@ -33,6 +33,7 @@ var files = {
         css: 'dist/assets/css',
         js: 'dist/app',
         indexHtml: 'dist/index.html',
+        images: 'dist/images',
         assets: {
             img: 'dist/assets/img'
         }
@@ -67,9 +68,10 @@ var files = {
     ],
     assets: {
         img: [
-            'src/assets/img/**/*'
+          'src/assets/img/**/*',
         ]
-    }
+    },
+    images : 'src/images/**/*'
 }
 
 gulp.task('connect', function() {
@@ -99,7 +101,17 @@ gulp.task('less', function() {
         .pipe(cssnano())
         .pipe(gulp.dest(files.dev.css));
 });
-
+gulp.task('images', () => {
+    return gulp.src(files.images)
+        .pipe(imagemin({
+            progressive: true,
+            svgoPlugins: [{
+                removeViewBox: false
+            }],
+            use: [pngquant()]
+        }))
+        .pipe(gulp.dest(files.dist.images));
+});
 gulp.task('assets', () => {
     return gulp.src(files.assets.img)
         .pipe(imagemin({
@@ -181,6 +193,7 @@ gulp.task('build', function(callback) {
         'build:inject-dependency',
         'build:concat-src',
         'build:del-tmp',
+        'images',
         'assets',
         callback
     );
