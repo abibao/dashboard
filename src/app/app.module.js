@@ -7,6 +7,6 @@
     'ngAnimate'
   ]);
   angular.module('app').constant('config', {
-    baseapi: 'http://api.pprod.abibao.com/v1'
+    baseapi: /pprod|localhost/.test(window.location.hostname) ? 'http://api.pprod.abibao.com/v1' : 'http://api.abibao.com/v1'
   });
 })(angular);
