@@ -1,0 +1,21 @@
+<form class="form-text" name="formText" ng-submit="submitAnswer({label:item.label, answer:answer})" novalidate>
+  <label>{{item.inputLabel}}</label>
+  <input
+    type="text"
+    ng-model="answer"
+    ng-required="{{item.required}}"
+    placeholder="{{item.placeholder}}"
+    ng-minlength="{{item.minlength}}"
+    ng-maxlength="{{item.maxlength}}"
+  />
+  <!-- ng-pattern="{{item.pattern}}" -->
+
+  <div class="form-next-wrapper">
+    <div ng-switch="item.leftcol">
+      <div ng-switch-when="LEFT_COL_REGISTER_MAIL" class="left-col" id="register-mail">
+          TEST
+      </div>
+    </div>
+    <button class="button" type="submit" ng-disabled="formText.$invalid"/>Valider</button>
+  </div>
+</form>

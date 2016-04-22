@@ -1,0 +1,20 @@
+<section class="container" id="login">
+  <section class="forms-container">
+
+    <section class="form-wrapper reverse">
+      <header>
+        <h1>Rentrez vos identifiants</h1>
+      </header>
+      <div class="form-body">
+        <form class="form-text" name="formText" ng-submit="login(user)" novalidate>
+          <input type="email" ng-model="user.email" placeholder="Votre adresse email"/><br />
+          <input type="password" ng-model="user.password" placeholder="Votre mot de passe"/ ng-minlength="6">
+          <div class="form-next-wrapper">
+            <button class="button" type="submit" ng-disabled="formText.$invalid"/>Connexion</button>
+          </div>
+        </form>
+      </div>
+    </section>
+    
+  </section>
+</section>

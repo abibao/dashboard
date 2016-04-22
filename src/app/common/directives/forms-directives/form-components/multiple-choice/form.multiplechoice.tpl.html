@@ -1,0 +1,3 @@
+<form id="form-multiple-choice" novalidate>
+  <button ng-repeat="choice in item.choices" class="button" type="submit" ng-click="submitAnswer({label:item.label, answer:choice.meta})"/>{{choice.text}}</button>
+</form>

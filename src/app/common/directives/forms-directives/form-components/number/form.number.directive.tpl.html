@@ -1,0 +1,10 @@
+<form id="form-number" name="formNumber" ng-submit="submitAnswer({label:item.label, answer:answer})" novalidate>
+  <input
+    type="number"
+    ng-model="answer"
+    min="{{item.minimum}}"
+    ng-required="{{item.required}}"
+    placeholder="{{item.placeholder}}"
+  />
+  <button class="button" type="submit" ng-disabled="formNumber.$invalid"/>Valider</button>
+</form>
