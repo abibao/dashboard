@@ -5,7 +5,7 @@
     .module('app')
     .controller('surveyCtrl', surveyCtrl);
 
-  function surveyCtrl($rootScope, $scope, survey, abibaoApiSvc, $stateParams, $state, nextSurvey) {
+  function surveyCtrl($rootScope, $scope, survey, abibaoApiSvc, $stateParams, $state, getNextState) {
     $scope.progress = {
       max : survey.items.length,
       current : 1,
@@ -30,14 +30,8 @@
         answer:response.answer
       }, function() {
         if ($scope.progress.current >= $scope.progress.max) {
-          abibaoApiSvc.globalInfos.get(function(globalInfos) {
-            if (!globalInfos.currentCharity) {
-              $state.go('charitychoice');
-            }
-            else {
-              var nextUrn = nextSurvey(globalInfos);
-              console.log(nextUrn);
-            }
+          getNextState().then(function(nextState) {
+            $state.go(nextState.stateName, nextState.params);
           });
         }
         else {

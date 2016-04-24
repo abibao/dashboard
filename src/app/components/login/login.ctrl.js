@@ -5,32 +5,18 @@
     .module('app')
     .controller('loginCtrl', loginCtrl);
 
-  function loginCtrl($scope, userSvc ,abibaoApiSvc, $state, nextSurvey) {
+  function loginCtrl($scope, userSvc ,abibaoApiSvc, $state, getNextState) {
     $scope.title = 'login';
     $scope.login = function(credentials) {
       abibaoApiSvc.individuals.login({
         email:credentials.email,
         password:credentials.password},
         function(res) {
-          loadSurveyHighPriority(res.globalInfos);
+          getNextState(res.globalInfos).then(function(nextState) {
+            $state.go(nextState.stateName, nextState.params);
+          });
         }
       );
-    }
-
-    function loadSurveyHighPriority(globalInfos) {
-      var nextUrn = nextSurvey(globalInfos);
-      console.log(nextUrn);
-      if (nextUrn) {
-        $state.go('survey', {urn:nextUrn})
-      }
-      else {
-        if (!globalInfos.currentCharity) {
-          $state.go('charitychoice');
-        }
-        else {
-          console.log('PLUS DE SONDAGE');
-        }
-      }
     }
   }
 })(angular);

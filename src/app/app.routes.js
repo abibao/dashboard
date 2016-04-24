@@ -38,10 +38,18 @@
         templateUrl: 'app/components/login/login.tpl.html',
         controller : 'loginCtrl'
       })
-      .state('thank-you', {
-        url:'/thank-you',
-        templateUrl: 'app/components/thank-you/thank-you.tpl.html',
-        controller : 'thankYouCtrl'
+      .state('thank-you-1', {
+        url:'/thank-you-1',
+        templateUrl: 'app/components/messages/thank-you-1/thank-you-1.tpl.html',
+        controller : 'thankYou1Ctrl'
+      })
+      .state('all-finished', {
+        url:'/all-finished',
+        templateUrl: 'app/components/messages/all-finished/all-finished.tpl.html'
+      })
+      .state('email-sended', {
+        url:'/email-sended',
+        templateUrl: 'app/components/messages/email-sended/email-sended.tpl.html'
       })
       .state('charitychoice', {
         url:'/charity-choice',

@@ -25,7 +25,7 @@
       if (!submited) {
         submited = true;
         abibaoApiSvc.charity.set({charity:$scope.selected_charity.urn}, function(res) {
-          $state.go('thank-you');
+          $state.go('thank-you-1');
         });
       }
     }
