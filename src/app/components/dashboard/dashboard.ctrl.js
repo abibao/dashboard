@@ -3,13 +3,11 @@
 
   angular
     .module('app')
-    .controller('dashboardCtrl', homeCtrl);
+    .controller('dashboardCtrl', dashboardCtrl);
 
-  // homeCtrl.$inject = ['$scope'];
-
-  function homeCtrl() {
-    var vm = this;
-    vm.test = 'dashboard !';
-
+  function dashboardCtrl($state,getNextState) {
+    getNextState().then(function(nextState) {
+      $state.go(nextState.stateName, nextState.params);
+    });
   }
 })(angular);
