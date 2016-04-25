@@ -11,7 +11,7 @@
               <li class="charity-choice-list-item" ng-repeat="charity in charities" >
                 <div class="charity-choice-list-item-wrapper" ng-class="{'selected': charity.urn == selected_charity.urn}" ng-click="selectCharity(charity)">
                   <img class="charity-choice-list-item-icon" ng-src="{{charity.icon}}">
-                  <div class="charity-choice-list-item-name">{{charity.title}}</div>
+                  <div class="charity-choice-list-item-name">{{charity.name}}</div>
                   <div class="charity-choice-list-item-check"></div>
                 </div>
                 <div class="charity-choice-list-item-caret">
