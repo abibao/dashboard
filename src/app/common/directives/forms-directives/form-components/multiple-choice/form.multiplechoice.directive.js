@@ -8,7 +8,12 @@
       var choicesSelected = this.item.choices.filter(function(item) {
         return item.selected;
       });
-      console.log(choicesSelected);
+      choicesSelected = choicesSelected.map(function(item) {
+        return item.meta;
+      });
+      if (choicesSelected.length) {
+        this.submitAnswer({label:this.item.label,answer:choicesSelected});
+      }
     }
   }
   angular
@@ -16,6 +21,6 @@
     .component("formMultipleChoice", {
         templateUrl: 'app/common/directives/forms-directives/form-components/multiple-choice/form.multiplechoice.tpl.html',
         controller : formMultipleChoiceCtrl,
-        bindings: {item: '='}
+        bindings: {item: '=', submitAnswer: '='}
     });
 })(angular);
