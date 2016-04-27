@@ -1,3 +1,4 @@
 <form id="form-multiple-choice" novalidate>
-  <button ng-repeat="choice in item.choices" class="button" type="submit" ng-click="submitAnswer({label:item.label, answer:choice.meta})"/>{{choice.text}}</button>
+  <button ng-repeat="choice in $ctrl.item.choices" class="button" ng-click="$ctrl.selectChoice(choice)" ng-class="{'selected' : choice.selected}">{{choice.text}}</button>
+  <button class="button" ng-click="$ctrl.submitChoice()">Valider</button>
 </form>
