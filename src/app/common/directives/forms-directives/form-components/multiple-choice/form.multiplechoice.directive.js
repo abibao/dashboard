@@ -1,9 +1,17 @@
 (function(angular) {
   function formMultipleChoiceCtrl() {
     var ctrl = this;
+    console.log(this.item.multipleSelections);
     this.selectChoice = function(choice) {
+      if (!this.item.multipleSelections) {
+        this.item.choices.forEach(function(item) {
+          item.selected = false;
+        });
+        this.submitAnswer({label:this.item.label,answer:choice.meta});
+      }
       choice.selected = choice.selected ? false : true;
     }
+
     this.submitChoice = function() {
       var choicesSelected = this.item.choices.filter(function(item) {
         return item.selected;
@@ -15,6 +23,7 @@
         this.submitAnswer({label:this.item.label,answer:choicesSelected});
       }
     }
+
   }
   angular
     .module('app')
