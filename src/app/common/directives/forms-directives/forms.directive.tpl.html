@@ -33,7 +33,7 @@ ABIBAO_COMPONENT_YES_NO
     <div class="form-body">
       <div ng-switch="item.type">
         <div ng-switch-when="ABIBAO_COMPONENT_NUMBER" form-number></div>
-        <div ng-switch-when="ABIBAO_COMPONENT_MULTIPLE_CHOICE" form-multiple-choice></div>
+        <form-multiple-choice ng-switch-when="ABIBAO_COMPONENT_MULTIPLE_CHOICE" item="item" submit-answer="submitAnswer"></form-multiple-choice>
         <div ng-switch-when="ABIBAO_COMPONENT_DROPDOWN" form-dropdown></div>
         <div ng-switch-when="ABIBAO_COMPONENT_YES_NO" form-yes-no></div>
         <div ng-switch-when="ABIBAO_COMPONENT_SHORT_TEXT" form-text></div>

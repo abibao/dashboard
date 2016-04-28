@@ -1,0 +1,28 @@
+{
+  "name": "abibao-mvp",
+  "authors": [
+    "Max Bryselbout <max.bryselbout@gmail.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "~0.2.15",
+    "angular": "~1.5.5",
+    "angular-resource": "^1.5.2",
+    "angular-cookies": "^1.5.2",
+    "animate.css": "^3.5.1",
+    "angular-animate": "^1.5.3"
+  }
+}
