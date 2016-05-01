@@ -30,7 +30,7 @@ ABIBAO_COMPONENT_YES_NO
       <h1>{{item.question}}</h1>
       <h2>{{item.description}}</h2>
     </header>
-    <div class="form-body">
+    <div class="form-body ">
       <div ng-switch="item.type">
         <form-number ng-switch-when="ABIBAO_COMPONENT_NUMBER" item="item" submit-answer="submitAnswer"></form-number>
         <form-multiple-choice ng-switch-when="ABIBAO_COMPONENT_MULTIPLE_CHOICE" item="item" submit-answer="submitAnswer"></form-multiple-choice>

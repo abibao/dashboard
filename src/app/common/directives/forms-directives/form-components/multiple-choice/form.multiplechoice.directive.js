@@ -6,7 +6,7 @@
         this.item.choices.forEach(function(item) {
           item.selected = false;
         });
-        this.submitAnswer({label:this.item.label,answer:choice.meta});
+        this.submitAnswer({label:this.item.label,answer:choice.urn});
       }
       choice.selected = choice.selected ? false : true;
     }
@@ -16,7 +16,7 @@
         return item.selected;
       });
       choicesSelected = choicesSelected.map(function(item) {
-        return item.meta;
+        return item.urn;
       });
       if (choicesSelected.length) {
         this.submitAnswer({label:this.item.label,answer:choicesSelected});
