@@ -11,8 +11,7 @@
       current : 1,
       maxIndex : 1
     };
-    var allResponses = [];
-    console.log(survey);
+    $scope.loadingState = false;
     $scope.$on("$stateChangeSuccess", function(event, toState, toParams) {
       var index = parseInt(toParams.index || 1) - 1;
       $scope.item = survey.items[index];
@@ -26,12 +25,12 @@
     });
 
     $scope.submitAnswer = function(response) {
+      $scope.loadingState = true;
       abibaoApiSvc.survey.answers({urn:$stateParams.urn},{
         label:response.label,
         answer:response.answer
       }, function() {
-        allResponses.push(response);
-        console.log(allResponses);
+        $scope.loadingState = false;
         if ($scope.progress.current >= $scope.progress.max) {
           getNextState().then(function(nextState) {
             $state.go(nextState.stateName, nextState.params);
