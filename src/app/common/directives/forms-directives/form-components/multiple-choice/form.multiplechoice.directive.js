@@ -1,7 +1,6 @@
 (function(angular) {
   function formMultipleChoiceCtrl() {
     var ctrl = this;
-    console.log(this.item.multipleSelections);
     this.selectChoice = function(choice) {
       if (!this.item.multipleSelections) {
         this.item.choices.forEach(function(item) {

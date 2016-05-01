@@ -2,5 +2,11 @@
   <div class="choices-wrapper">
     <button ng-repeat="choice in $ctrl.item.choices" class="button choice" ng-click="$ctrl.selectChoice(choice)" ng-class="{'selected' : choice.selected}">{{choice.text}}</button>
   </div>
-  <button ng-if="$ctrl.item.multipleSelections" class="button submit" ng-click="$ctrl.submitChoice()">Valider</button>
+  <button
+    class="button submit"
+    ng-if="$ctrl.item.multipleSelections"
+    ng-click="$ctrl.submitChoice()"
+    >
+    Valider
+  </button>
 </form>
