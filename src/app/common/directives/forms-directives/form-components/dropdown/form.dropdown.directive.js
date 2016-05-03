@@ -1,13 +1,20 @@
 (function(angular) {
+  function formDropdownCtrl() {
+    var ctrl = this;
+    if (!this.item.placeholder) {
+      this.selected = this.item.choices[0].urn;
+    }
+    this.submitChoice = function(choiceUrn) {
+      if (this.formDropdown.$valid) {
+        this.submitAnswer({label:this.item.label,answer:choiceUrn});
+      }
+    }
+  }
   angular
     .module('app')
-    .directive("formDropdown", function() {
-      return {
-        restrict: 'EA',
+    .component("formDropdown", {
         templateUrl: 'app/common/directives/forms-directives/form-components/dropdown/form.dropdown.tpl.html',
-        link: function(scope) {
-          scope.selected = scope.item.choices[0].urn;
-        }
-      };
+        controller : formDropdownCtrl,
+        bindings: {item: '=', submitAnswer: '='}
     });
 })(angular);

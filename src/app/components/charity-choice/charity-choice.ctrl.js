@@ -21,11 +21,10 @@
       $scope.selected_charity = charity;
     }
     function sumbitSelectedCharity() {
-      console.log($scope.selected_charity.urn);
       if (!submited) {
         submited = true;
         abibaoApiSvc.charity.set({charity:$scope.selected_charity.urn}, function(res) {
-          $state.go('thank-you');
+          $state.go('thank-you-1');
         });
       }
     }

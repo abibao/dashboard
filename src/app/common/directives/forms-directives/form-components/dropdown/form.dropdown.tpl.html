@@ -1,8 +1,12 @@
-<form id="form-dropdown" novalidate>
-  <select ng-options="choice.urn as choice.text for choice in item.choices" ng-class="{default:!selected}" ng-model="selected" ng-required="true">
-    <!-- <option value="">- Please Choose -</option> -->
-    <!-- <option ng-if="item.placeholder" value="">{{item.placeholder}}</option> -->
-    <!-- <option ng-repeat="choice as item.choices " value="{{choice.urn}}">{{choice.text}}</option> -->
+<form id="form-dropdown"
+  name="$ctrl.formDropdown"
+  novalidate
+  ng-submit="$ctrl.submitChoice($ctrl.selected)">
+  <select
+    ng-options="choice.urn as choice.text for choice in $ctrl.item.choices" ng-class="{default:!$ctrl.selected}"
+    ng-model="$ctrl.selected"
+    ng-required="true">
+    <option ng-if="$ctrl.item.placeholder" value="">{{$ctrl.item.placeholder}}</option>
   </select>
-  <button class="button" type="submit" ng-click="submitAnswer({label:item.label, answer:selected})"/>Suivant</button>
+  <button class="button" type="submit" ng-disabled="$ctrl.formDropdown.$invalid"/>Suivant</button>
 </form>

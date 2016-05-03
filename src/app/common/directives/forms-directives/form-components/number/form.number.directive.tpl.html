@@ -1,10 +1,11 @@
-<form id="form-number" name="formNumber" ng-submit="submitAnswer({label:item.label, answer:answer})" novalidate>
+<form id="form-number" name="$ctrl.formNumber" ng-submit="$ctrl.submitChoice($ctrl.numberRes)" novalidate>
   <input
     type="number"
-    ng-model="answer"
-    min="{{item.minimum}}"
-    ng-required="{{item.required}}"
-    placeholder="{{item.placeholder}}"
+    ng-model="$ctrl.numberRes"
+    min="{{$ctrl.item.minimum}}"
+    max="{{$ctrl.item.maximum}}"
+    ng-required="{{$ctrl.item.required}}"
+    placeholder="{{$ctrl.item.placeholder}}"
   />
-  <button class="button" type="submit" ng-disabled="formNumber.$invalid"/>Valider</button>
+  <button class="button" type="submit" ng-disabled="$ctrl.formNumber.$invalid"/>Valider</button>
 </form>
