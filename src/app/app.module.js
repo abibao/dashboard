@@ -1,6 +1,7 @@
 (function(angular) {
   'use strict';
   angular.module('app', [
+    'angular-google-analytics',
     'ui.router',
     'ngResource',
     'ngCookies',

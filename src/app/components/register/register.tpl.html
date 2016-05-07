@@ -11,7 +11,7 @@
           <input type="email" ng-model="userCredentials.email" ng-required="true" placeholder="mon email" />
           <div class="form-next-wrapper">
             <!-- <div class="left-col" id="register-mail">TEST</div> -->
-            <button class="button" type="submit" ng-disabled="formRegisterMail.$invalid" />Valider</button>
+            <button class="button" type="submit" ng-disabled="formRegisterMail.$invalid" ga-track-event="['button', 'register', 'email']"/>Valider</button>
           </div>
         </form>
       </div>
@@ -27,7 +27,7 @@
         <form class="form-text" name="formRegisterPassword" ng-submit="submitFormRegisterPassword()" novalidate>
           <input type="password" ng-model="userCredentials.password" ng-required="true" placeholder="Mon mot de passe" ng-minlength="6" />
           <div class="form-next-wrapper">
-            <button class="button" type="submit" ng-disabled="formRegisterPassword.$invalid" />Valider</button>
+            <button class="button" type="submit" ng-disabled="formRegisterPassword.$invalid" ga-track-event="['button', 'register', 'password']"/>Valider</button>
           </div>
         </form>
       </div>

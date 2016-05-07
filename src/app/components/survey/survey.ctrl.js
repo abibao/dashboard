@@ -5,7 +5,8 @@
     .module('app')
     .controller('surveyCtrl', surveyCtrl);
 
-  function surveyCtrl($rootScope, $scope, survey, abibaoApiSvc, $stateParams, $state, getNextState) {
+  function surveyCtrl(Analytics,$rootScope, $scope, survey, abibaoApiSvc, $stateParams, $state, getNextState) {
+    Analytics.pageView();
     $scope.progress = {
       max : survey.items.length,
       current : 1,

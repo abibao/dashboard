@@ -1,9 +1,9 @@
 /**
- * @license AngularJS v1.5.5
+ * @license AngularJS v1.5.2
  * (c) 2010-2016 Google, Inc. http://angularjs.org
  * License: MIT
  */
-(function(window, angular) {'use strict';
+(function(window, angular, undefined) {'use strict';
 
 var $resourceMinErr = angular.$$minErr('$resource');
 

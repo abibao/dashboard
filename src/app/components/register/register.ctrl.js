@@ -3,7 +3,8 @@
     .module('app')
     .controller('registerCtrl', registerCtrl);
 
-  function registerCtrl($scope, userSvc ,abibaoApiSvc, $location, $state) {
+  function registerCtrl(Analytics, $scope, userSvc ,abibaoApiSvc, $location, $state) {
+    Analytics.pageView();
     $scope.userCredentials = {
       email : locationEmailInterceptor(),
       entity : locationEntityInterceptor(),
