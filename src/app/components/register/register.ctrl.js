@@ -62,7 +62,7 @@
     }
 
     function locationEntityInterceptor() {
-      var locationSearchEntity = $location.search().registerentity;
+      var locationSearchEntity = $location.search().registercharity;
       if (typeof locationSearchEntity == 'string') {
         return locationSearchEntity;
       }
