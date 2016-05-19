@@ -1,6 +1,14 @@
 (function(angular) {
   angular
     .module('app')
+    .config(function (AnalyticsProvider) {
+      AnalyticsProvider
+        .setAccount('UA-77334841-2')
+        .setDomainName('auto')
+        .setHybridMobileSupport(true)
+        .logAllCalls(true)
+        .useDisplayFeatures(true)
+    })
     .config(routes);
 
   function routes($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {

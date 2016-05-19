@@ -3,7 +3,8 @@
     .module('app')
     .controller('registerCtrl', registerCtrl);
 
-  function registerCtrl($scope, userSvc ,abibaoApiSvc, $location, $state) {
+  function registerCtrl(Analytics, $scope, userSvc ,abibaoApiSvc, $location, $state) {
+    Analytics.pageView();
     $scope.userCredentials = {
       email : locationEmailInterceptor(),
       entity : locationEntityInterceptor(),
@@ -61,7 +62,7 @@
     }
 
     function locationEntityInterceptor() {
-      var locationSearchEntity = $location.search().registerentity;
+      var locationSearchEntity = $location.search().registercharity;
       if (typeof locationSearchEntity == 'string') {
         return locationSearchEntity;
       }
