@@ -27,13 +27,9 @@ ABIBAO_COMPONENT_YES_NO
         ng-click="next()"/>
       <h1>{{item.question}}</h1>
       <h2>{{item.description}}</h2>
-      <div ng-bind-html="item.headertpl">
-
-      </div>
     </header>
     <div class="form-body ">
       <div ng-switch="item.type">
-        <screen-welcome-content ng-switch-when="screenWelcomeContent"></screen-welcome-content>
         <form-number ng-switch-when="ABIBAO_COMPONENT_NUMBER" item="item" submit-answer="submitAnswer"></form-number>
         <form-multiple-choice ng-switch-when="ABIBAO_COMPONENT_MULTIPLE_CHOICE" item="item" submit-answer="submitAnswer"></form-multiple-choice>
         <form-dropdown ng-switch-when="ABIBAO_COMPONENT_DROPDOWN" item="item" submit-answer="submitAnswer"></form-dropdown>
