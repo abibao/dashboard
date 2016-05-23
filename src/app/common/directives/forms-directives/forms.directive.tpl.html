@@ -10,14 +10,13 @@ ABIBAO_COMPONENT_YES_NO
 
 <section class="forms-container">
   <section class="form-wrapper" ng-class="{reverse:reverse}">
-    <header>
+    <header ng-class="{reverseorder:reverseorder}">
       <img
         ng-if="progress.current > 1"
         class="form-nav previous"
         src="assets/img/survey/fleche_retour.png"
         srcset="assets/img/survey/fleche_retour@2x.png 2x,
               assets/img/survey/fleche_retour@3x.png 3x"
-        alt=""
         ng-click="previous()"/>
       <img
         ng-if="progress.maxIndex > progress.current"
@@ -25,7 +24,6 @@ ABIBAO_COMPONENT_YES_NO
         src="assets/img/survey/fleche_suivant.png"
         srcset="assets/img/survey/fleche_suivant@2x.png 2x,
               assets/img/survey/fleche_suivant@3x.png 3x"
-        alt=""
         ng-click="next()"/>
       <h1>{{item.question}}</h1>
       <h2>{{item.description}}</h2>

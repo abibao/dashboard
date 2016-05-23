@@ -1,6 +1,14 @@
 (function(angular) {
   angular
     .module('app')
+    .config(function (AnalyticsProvider) {
+      AnalyticsProvider
+        .setAccount('UA-77334841-2')
+        .setDomainName('auto')
+        .setHybridMobileSupport(true)
+        .logAllCalls(true)
+        .useDisplayFeatures(true)
+    })
     .config(routes);
 
   function routes($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
@@ -72,7 +80,17 @@
         }
       })
       .state('survey.step', {
-        url:'/etape-:index'
+        url:'/etape-:index',
+        templateUrl: 'app/components/survey/survey.tpl.html'
+      })
+      .state('survey.screencontent', {
+        url:'/message',
+        templateUrl: 'app/components/screen-content/screen.content.tpl.html',
+        controller : 'screenContentCtrl',
+        params :{
+          content : '',
+          type:''
+        }
       })
       .state('404', {
         url:'/404',

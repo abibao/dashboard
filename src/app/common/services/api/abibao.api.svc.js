@@ -9,7 +9,7 @@
     $http.defaults.transformRequest = function(params) {
       return $httpParamSerializer(params);
     };
-    
+
     if (userSvc.getToken()) {
       $http.defaults.headers.common['Authorization'] = userSvc.getToken();
       $rootScope.isLoggedIn = true;
@@ -32,6 +32,7 @@
           params: {
             action: 'register',
             email: '@email',
+            entity: '@entity',
             password1: '@password1',
             password2: '@password2'
           },

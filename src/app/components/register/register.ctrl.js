@@ -3,12 +3,15 @@
     .module('app')
     .controller('registerCtrl', registerCtrl);
 
-  function registerCtrl($scope, userSvc ,abibaoApiSvc, $location, $state) {
+  function registerCtrl(Analytics, $scope, userSvc ,abibaoApiSvc, $location, $state) {
+    Analytics.pageView();
     $scope.userCredentials = {
       email : locationEmailInterceptor(),
+      entity : locationEntityInterceptor(),
       password : ''
     }
     $scope.step = ($scope.userCredentials.email) ? 2 : 1;
+    $location.search({}).path('/register');
 
     $scope.submitFormRegisterMail = function() {
       if (this.formRegisterMail.$valid) {
@@ -22,11 +25,16 @@
     }
 
     function registerUser() {
-      abibaoApiSvc.individuals.register({
-          email:$scope.userCredentials.email,
-          password1:$scope.userCredentials.password,
-          password2:$scope.userCredentials.password
-        }, function(res) {
+      var credentials = {
+        email:$scope.userCredentials.email,
+        password1:$scope.userCredentials.password,
+        password2:$scope.userCredentials.password
+      }
+      if ($scope.userCredentials.entity) {
+        credentials.entity = $scope.userCredentials.entity;
+      }
+      abibaoApiSvc.individuals.register(credentials
+        , function(res) {
           userIsRegistered();
         }, function(err) {
           alert(err.data.message);
@@ -48,10 +56,17 @@
     function locationEmailInterceptor() {
       var locationSearchEmail = $location.search().registermail;
       if (typeof locationSearchEmail == 'string') {
-        $location.search({}).path('/register');
         return locationSearchEmail;
       }
       return '';
+    }
+
+    function locationEntityInterceptor() {
+      var locationSearchEntity = $location.search().registerentity;
+      if (typeof locationSearchEntity == 'string') {
+        return locationSearchEntity;
+      }
+      return false;
     }
   }
 })(angular);
