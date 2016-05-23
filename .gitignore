@@ -4,7 +4,8 @@ logs
 npm-debug.log*
 
 # gulp build
-dist/
+dist
+!src/lib/angular-google-analytics/dist/*.*
 
 # Runtime data
 pids
