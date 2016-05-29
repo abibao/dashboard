@@ -10,14 +10,10 @@
 
         $scope.progress = false;
         var answsers = [];
-        // console.log(survey);
-        // if (survey.screenWelcomeContent) {
-        //     $state.go('survey.screencontent', {
-        //         content: survey.screenWelcomeContent,
-        //         type: 'welcome'
-        //     });
-        // }
-
+        $scope.screenWelcomeContent = survey.screenWelcomeContent;
+        $scope.hideScreenWelcomeContent = function() {
+          $scope.screenWelcomeContent = '';
+        }
         $scope.progress = {
             max: survey.items.length,
             current: 1,

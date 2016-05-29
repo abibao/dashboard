@@ -1,5 +1,14 @@
-
 <section class="container" ui-view id="item-form-view">
-  <form-wrapper></form-wrapper>
+  <section class="forms-container" ng-show="screenWelcomeContent">
+    <section class="form-wrapper">
+      <header>
+        <div ng-bind-html="screenWelcomeContent"></div>
+      </header>
+      <div class="form-body">
+        <div class="button" ng-click="hideScreenWelcomeContent()" style="margin-top:0px">Continuer</div>
+      </div>
+    </section>
+  </section>
+  <form-wrapper ng-hide="screenWelcomeContent"></form-wrapper>
 </section>
-<form-progress-bar></form-progress-bar>
+<form-progress-bar ng-hide="screenWelcomeContent"></form-progress-bar>
