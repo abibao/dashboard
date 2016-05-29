@@ -7,7 +7,6 @@
 
   function charityChoiceCtrl($rootScope, $scope, abibaoApiSvc, charities, $state) {
     var submited = false;
-
     $scope.charities = charities;
     $scope.selectCharity = selectCharity;
     $scope.sumbitSelectedCharity = sumbitSelectedCharity;
