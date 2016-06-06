@@ -7,7 +7,7 @@
 
     function surveyCtrl(Analytics, $rootScope, $scope, survey, abibaoApiSvc, $stateParams, $state, getNextState) {
         Analytics.pageView();
-
+        console.log(survey);
         $scope.progress = false;
         var answsers = [];
         $scope.screenWelcomeContent = survey.screenWelcomeContent;
