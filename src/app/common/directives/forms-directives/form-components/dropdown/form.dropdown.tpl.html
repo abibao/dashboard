@@ -3,10 +3,11 @@
   novalidate
   ng-submit="$ctrl.submitChoice($ctrl.selected)">
   <select
-    ng-options="choice.urn as choice.text for choice in $ctrl.item.choices" ng-class="{default:!$ctrl.selected}"
+    ng-options="choice.urn as choice.text for choice in $ctrl.item.choices"
     ng-model="$ctrl.selected"
     ng-required="true">
     <option ng-if="$ctrl.item.placeholder" value="">{{$ctrl.item.placeholder}}</option>
   </select>
   <button class="button" type="submit" ng-disabled="$ctrl.formDropdown.$invalid"/>Suivant</button>
 </form>
+<!-- ng-class="{default:!$ctrl.selected}" -->
