@@ -7,7 +7,9 @@
 
     function surveyCtrl(Analytics, $rootScope, $scope, survey, abibaoApiSvc, $stateParams, $state, getNextState) {
         Analytics.pageView();
-        console.log(survey);
+        survey.items.sort(function(a, b) {
+          return a.position - b.position;
+        });
         $scope.progress = false;
         var answsers = [];
         $scope.screenWelcomeContent = survey.screenWelcomeContent;
