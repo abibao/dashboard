@@ -29,6 +29,6 @@
     .component("formMultipleChoice", {
         templateUrl: 'app/common/directives/forms-directives/form-components/multiple-choice/form.multiplechoice.tpl.html',
         controller : formMultipleChoiceCtrl,
-        bindings: {item: '=', submitAnswer: '='}
+        bindings: {item: '=', submitAnswer: '=', progress:'=', previous:'=',next:'='}
     });
 })(angular);
