@@ -5,6 +5,7 @@
       <header>
         <h1>Rentrez vos identifiants</h1>
       </header>
+      <form-message message="formError.message" close="formError.close"></form-message>
       <div class="form-body">
         <form class="form-text" name="formText" ng-submit="login(user)" novalidate>
           <input type="email" ng-model="user.email" placeholder="Votre adresse email"/><br />
