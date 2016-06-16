@@ -15,6 +15,11 @@
           getNextState(res.globalInfos).then(function(nextState) {
             $state.go(nextState.stateName, nextState.params);
           });
+        }, function(err) {
+          $scope.formError = {
+            close : true,
+            message : 'Oups, votre adresse Email ou votre mot de passe est incorrect'
+          }
         }
       );
     }

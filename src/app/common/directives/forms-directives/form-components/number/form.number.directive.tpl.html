@@ -1,11 +1,34 @@
-<form id="form-number" name="$ctrl.formNumber" ng-submit="$ctrl.submitChoice($ctrl.numberRes)" novalidate>
-  <input
-    type="number"
-    ng-model="$ctrl.numberRes"
-    min="{{$ctrl.item.minimum}}"
-    max="{{$ctrl.item.maximum}}"
-    ng-required="{{$ctrl.item.required}}"
-    placeholder="{{$ctrl.item.placeholder}}"
-  />
-  <button class="button" type="submit" ng-disabled="$ctrl.formNumber.$invalid"/>Valider</button>
-</form>
+<section class="form-wrapper">
+  <header>
+    <img
+      ng-if="$ctrl.progress.current > 1"
+      class="form-nav previous"
+      src="assets/img/survey/fleche_retour.png"
+      srcset="assets/img/survey/fleche_retour@2x.png 2x,
+            assets/img/survey/fleche_retour@3x.png 3x"
+      ng-click="$ctrl.previous()"/>
+    <img
+      ng-if="$ctrl.progress.maxIndex > progress.current"
+      class="form-nav next"
+      src="assets/img/survey/fleche_suivant.png"
+      srcset="assets/img/survey/fleche_suivant@2x.png 2x,
+            assets/img/survey/fleche_suivant@3x.png 3x"
+      ng-click="$ctrl.next()"/>
+    <h1>{{$ctrl.item.question}}</h1>
+    <h2>{{$ctrl.item.description}}</h2>
+  </header>
+  <form-message message="$ctrl.formError.message" close="$ctrl.formError.close"></form-message>
+  <div class="form-body ">
+    <form id="form-number" name="$ctrl.formNumber" ng-submit="$ctrl.submitChoice($ctrl.numberRes)" novalidate>
+      <input
+        type="number"
+        ng-model="$ctrl.numberRes"
+        min="{{$ctrl.item.minimum}}"
+        max="{{$ctrl.item.maximum}}"
+        ng-required="{{$ctrl.item.required}}"
+        placeholder="{{$ctrl.item.placeholder}}"
+      />
+      <button class="button" type="submit" />Valider</button>
+    </form>
+  </div>
+</section>

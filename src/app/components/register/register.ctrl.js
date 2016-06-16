@@ -37,7 +37,11 @@
         , function(res) {
           userIsRegistered();
         }, function(err) {
-          alert(err.data.message);
+          $scope.formError = {
+            close : true,
+            message : 'Oups, il semblerait que vous ayez déjà un compte avec cette adresse Email'
+          }
+          $scope.step = 1;
         }
       );
     }

@@ -1,0 +1,11 @@
+<section ng-show="$ctrl.message" id="error-wrapper">
+  <!-- <div id="error-icon">
+    O
+  </div> -->
+  <div id="error-message">
+    {{$ctrl.message}}
+  </div>
+  <div ng-if="$ctrl.close" id="error-close" ng-click="$ctrl.closeMessage()">
+    Ok
+  </div>
+</section>
