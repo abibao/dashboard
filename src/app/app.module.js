@@ -9,6 +9,6 @@
     'ngSanitize'
   ]);
   angular.module('app').constant('config', {
-    baseapi: /pprod|localhost/.test(window.location.hostname) ? 'http://api.pprod.abibao.com/v1' : 'http://api.abibao.com/v1'
+    baseapi: /pprod|localhost/.test(window.location.hostname) ? 'https://api.pprod.abibao.com/v1' : 'https://api.abibao.com/v1'
   });
 })(angular);
