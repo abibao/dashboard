@@ -59,6 +59,9 @@
       globalInfos : $resource(config.baseapi + '/auth/global/informations',{},{
         'get' : {method:'GET'}
       }),
+      alive : $resource(config.baseapi + '/alive',{},{
+        'getCSRF' : {method:'GET'}
+      }),
       charity: $resource(config.baseapi + '/:action/charity',{},{
         'query':  {method:'GET', isArray:true, params:{action:'entities'}},
         'set':  {method:'PATCH', params:{action:'auth',charity:'@charity'}}

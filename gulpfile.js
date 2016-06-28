@@ -77,6 +77,8 @@ var files = {
 gulp.task('connect', function() {
     connect.server({
         root: ['src'],
+        https: true,
+        host: 'dashboard.local.net',
         livereload: true,
         fallback: files.dev.indexHtml
     });
