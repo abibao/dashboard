@@ -1,8 +1,9 @@
 {
   "name": "dashboard",
-  "version": "1.2.0",
+  "version": "1.2.5",
   "description": "Abibao dashboard MVP",
   "scripts": {
+    "check:updates": "./node_modules/.bin/ncu",
     "server:deve": "clear && gulp development"
   },
   "repository": {
