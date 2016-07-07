@@ -43,7 +43,7 @@
         controller : 'registerCtrl'
       })
       .state('login', {
-        url:'/login',
+        url:'/login?fingerprint',
         templateUrl: 'app/components/login/login.tpl.html',
         controller : 'loginCtrl'
       })

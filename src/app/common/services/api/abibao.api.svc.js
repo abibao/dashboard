@@ -26,7 +26,7 @@
     }
 
     return {
-      individuals: $resource(config.baseapi + '/individuals/:action', {}, {
+      individuals: $resource(config.baseapi + '/individuals/:action/:fingerprint', {}, {
         'register': {
           method: 'POST',
           params: {
@@ -44,6 +44,14 @@
             action: 'login',
             email: '@email',
             password: '@password'
+          },
+          transformResponse: interceptToken
+        },
+        'autologin': {
+          method: 'POST',
+          params: {
+            action: 'autologin',
+            fingerprint: '@fingerprint'
           },
           transformResponse: interceptToken
         }
