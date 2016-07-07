@@ -8,15 +8,16 @@
     width: 100%;
     max-width: 330px;
   }
-  .default{
-    color: @color-abibao-medium-grey;
-  }
+  // .default{
+  //   color: #000;
+  // }
 
    select {
     border: none;
     box-shadow: none;
     background-color: transparent;
     appearance: none;
+    color: @color-abibao-medium-grey;
     background: #FFF;
     padding: 20px 30px;
     margin: 15px;
@@ -25,6 +26,12 @@
     max-width: 600px;
     border-radius: 0px !important;
     background: url("/assets/img/survey/fleche.png")#FFF no-repeat  right 20px center;
+    option:first-child{
+      color: @color-abibao-medium-grey;
+    }
+    option{
+      color: #000;
+    }
   }
   select:focus {
     outline: none;

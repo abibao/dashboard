@@ -17,6 +17,7 @@
     $httpProvider.interceptors.push(function($q) {
       return {
         responseError: function(res) {
+          console.log(res.status);
           switch (res.status) {
             case 401:
               window.location = '/login';
@@ -42,7 +43,7 @@
         controller : 'registerCtrl'
       })
       .state('login', {
-        url:'/login',
+        url:'/login?fingerprint',
         templateUrl: 'app/components/login/login.tpl.html',
         controller : 'loginCtrl'
       })
