@@ -9,6 +9,12 @@
     'ngSanitize'
   ]);
   angular.module('app').constant('config', {
-    baseapi: /pprod|localhost/.test(window.location.hostname) ? 'https://api.pprod.abibao.com/v1' : 'https://api.abibao.com/v1'
+    baseapi: /pprod|localhost|local/.test(window.location.hostname) ? 'https://api.pprod.abibao.com/v1' : 'https://api.abibao.com/v1'
   });
+  // angular.module('app').config(['$httpProvider', function($httpProvider) {
+  //   $httpProvider.defaults.withCredentials = true;
+  // }]);
+  // angular.module('app').run(function(abibaoApiSvc) {
+  //   abibaoApiSvc.alive.getCSRF();
+  // });
 })(angular);
