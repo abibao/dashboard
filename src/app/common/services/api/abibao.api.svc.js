@@ -26,7 +26,7 @@
     }
 
     return {
-      individuals: $resource(config.baseapi + '/individuals/:action', {}, {
+      individuals: $resource(config.baseapi + '/individuals/:action/:fingerprint', {}, {
         'register': {
           method: 'POST',
           params: {
@@ -46,6 +46,14 @@
             password: '@password'
           },
           transformResponse: interceptToken
+        },
+        'autologin': {
+          method: 'POST',
+          params: {
+            action: 'autologin',
+            fingerprint: '@fingerprint'
+          },
+          transformResponse: interceptToken
         }
       }),
       survey: $resource(config.baseapi + '/auth/surveys/:urn', {
@@ -58,6 +66,9 @@
       }),
       globalInfos : $resource(config.baseapi + '/auth/global/informations',{},{
         'get' : {method:'GET'}
+      }),
+      alive : $resource(config.baseapi + '/alive',{},{
+        'getCSRF' : {method:'GET'}
       }),
       charity: $resource(config.baseapi + '/:action/charity',{},{
         'query':  {method:'GET', isArray:true, params:{action:'entities'}},

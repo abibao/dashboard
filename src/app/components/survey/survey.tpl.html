@@ -1,5 +1,6 @@
-
 <section class="container" ui-view id="item-form-view">
-  <form-wrapper></form-wrapper>
+  <screen-welcome-content show="screenWelcomeContent" content="screenWelcomeContent" click="hideScreenWelcomeContent"></screen-welcome-content>
+  <form-wrapper ng-hide="screenWelcomeContent"></form-wrapper>
 </section>
-<form-progress-bar></form-progress-bar>
+
+<form-progress-bar ng-hide="screenWelcomeContent"></form-progress-bar>
