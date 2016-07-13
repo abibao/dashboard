@@ -6,7 +6,8 @@
     'ngResource',
     'ngCookies',
     'ngAnimate',
-    'ngSanitize'
+    'ngSanitize',
+    'angular-loading-bar'
   ]);
   angular.module('app').constant('config', {
     baseapi: /pprod|localhost|local/.test(window.location.hostname) ? 'https://api.pprod.abibao.com/v1' : 'https://api.abibao.com/v1'
