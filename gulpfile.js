@@ -46,7 +46,8 @@ var files = {
         'src/assets/less/master.less',
         'src/app/partials/**/*.less',
         'src/app/components/**/*.less',
-        'src/app/common/directives/**/*.less'
+        'src/app/common/directives/**/*.less',
+        'src/assets/less/media.less'
     ],
     html: [
         'src/*.html',
