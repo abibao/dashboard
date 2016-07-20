@@ -28,7 +28,7 @@
         <form class="form-text" name="formRegisterPassword" ng-submit="submitFormRegisterPassword()" novalidate>
           <input type="password" ng-model="userCredentials.password" ng-required="true" placeholder="Mon mot de passe" ng-minlength="6" />
           <div class="form-next-wrapper">
-            <button class="button" type="submit" ng-disabled="formRegisterPassword.$invalid" ga-track-event="['button', 'register', 'password']"/>Valider</button>
+            <button class="button" type="submit" ng-disabled="formRegisterPassword.$invalid || formRegisterPassword.$submitted" ga-track-event="['button', 'register', 'password']"/>Valider</button>
           </div>
         </form>
       </div>
