@@ -1,0 +1,20 @@
+<section class="container">
+  <section class="forms-container">
+    <section class="form-wrapper reverse">
+      <header>
+        <h1>Validez votre vote !</h1>
+        <h2>En laissant votre email</h2>
+      </header>
+      <form-message message="formError.message" close="formError.close"></form-message>
+      <div class="form-body">
+        <form class="form-text" name="formRegisterMail" ng-submit="submitFormRegisterMail()" novalidate>
+          <label>Nous demandons votre email car un seul vote est autorisé par personne</label>
+          <input type="email" ng-model="userCredentials.email" ng-required="true" placeholder="mon email" />
+          <div class="form-next-wrapper">
+            <button class="button" type="submit" ng-disabled="formRegisterMail.$invalid" ga-track-event="['button', 'vote_smf', 'email']"/>Voter</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </section>
+</section>

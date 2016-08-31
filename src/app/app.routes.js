@@ -60,6 +60,11 @@
         url:'/email-sended',
         templateUrl: 'app/components/messages/email-sended/email-sended.tpl.html'
       })
+      .state('smfchoice', {
+        url:'/smf-choice/:node',
+        templateUrl: 'app/components/smf-choice/smf-choice.tpl.html',
+        controller : 'smfChoiceCtrl'
+      })
       .state('charitychoice', {
         url:'/charity-choice',
         templateUrl: 'app/components/charity-choice/charity-choice.tpl.html',
