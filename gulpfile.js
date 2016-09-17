@@ -18,6 +18,9 @@ var ngAnnotate = require('gulp-ng-annotate');
 var runSequence = require('run-sequence');
 var del = require('del');
 
+var nconf = require('nconf')
+nconf.argv().env().file({ file: 'nconf-deve.json' })
+
 function handleError(err) {
     console.log(err.message);
     this.emit('end');
@@ -78,8 +81,9 @@ var files = {
 gulp.task('connect', function() {
     connect.server({
         root: ['src'],
-        https: true,
-        host: 'dashboard.local.net',
+        https: false,
+        host: nconf.get('ABIBAO_DASHBOARD_EXPOSE_IP'),
+        port: nconf.get('ABIBAO_DASHBOARD_EXPOSE_PORT'),
         livereload: true,
         fallback: files.dev.indexHtml
     });

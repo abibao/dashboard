@@ -73,6 +73,9 @@
       charity: $resource(config.baseapi + '/:action/charity',{},{
         'query':  {method:'GET', isArray:true, params:{action:'entities'}},
         'set':  {method:'PATCH', params:{action:'auth',charity:'@charity'}}
+      }),
+      startup: $resource(config.baseapi + '/wp_json/smf/startups/:node',{},{
+        node:'@node'
       })
     }
 

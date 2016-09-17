@@ -25,7 +25,7 @@
             case 400:
               break;
             default:
-              window.location = '/404';
+              // window.location = '/404';
           }
           return $q.reject(res);
         }
@@ -59,6 +59,11 @@
       .state('email-sended', {
         url:'/email-sended',
         templateUrl: 'app/components/messages/email-sended/email-sended.tpl.html'
+      })
+      .state('smfchoice', {
+        url:'/smf-choice/:node',
+        templateUrl: 'app/components/smf-choice/smf-choice.tpl.html',
+        controller : 'smfChoiceCtrl'
       })
       .state('charitychoice', {
         url:'/charity-choice',
