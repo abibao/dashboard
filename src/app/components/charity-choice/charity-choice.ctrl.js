@@ -1,31 +1,31 @@
-(function(angular) {
-  'use strict';
+(function (angular) {
+  'use strict'
 
   angular
     .module('app')
-    .controller('charityChoiceCtrl', charityChoiceCtrl);
+    .controller('charityChoiceCtrl', charityChoiceCtrl)
 
-  function charityChoiceCtrl($rootScope, $scope, abibaoApiSvc, charities, $state) {
-    var submited = false;
-    $scope.charities = charities;
-    $scope.selectCharity = selectCharity;
-    $scope.sumbitSelectedCharity = sumbitSelectedCharity;
+  function charityChoiceCtrl ($rootScope, $scope, abibaoApiSvc, charities, $state) {
+    var submited = false
+    $scope.charities = charities
+    $scope.selectCharity = selectCharity
+    $scope.sumbitSelectedCharity = sumbitSelectedCharity
 
-    selectCharity(charities[0]);
+    selectCharity(charities[0])
 
-    function selectCharity(charity) {
+    function selectCharity (charity) {
       if (typeof charity.usages === 'string') {
-        charity.usages = charity.usages.split('|');
+        charity.usages = charity.usages.split('|')
       }
-      $scope.selected_charity = charity;
+      $scope.selected_charity = charity
     }
-    function sumbitSelectedCharity() {
+    function sumbitSelectedCharity () {
       if (!submited) {
-        submited = true;
-        abibaoApiSvc.charity.set({charity:$scope.selected_charity.urn}, function(res) {
-          $state.go('thank-you-1');
-        });
+        submited = true
+        abibaoApiSvc.charity.set({charity: $scope.selected_charity.urn}, function (res) {
+          $state.go('thank-you-1')
+        })
       }
     }
   }
-})(angular);
+})(angular)

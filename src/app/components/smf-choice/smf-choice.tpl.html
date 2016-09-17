@@ -2,7 +2,7 @@
   <section class="forms-container">
     <section class="form-wrapper reverse">
       <header>
-        <h1>Validez votre vote !</h1>
+        <h1>Validez votre vote pour "{{selected_startup.title}}" !</h1>
         <h2>En laissant votre email</h2>
       </header>
       <form-message message="formError.message" close="formError.close"></form-message>
@@ -13,6 +13,8 @@
           <div class="form-next-wrapper">
             <button class="button" type="submit" ng-disabled="formRegisterMail.$invalid" ga-track-event="['button', 'vote_smf', 'email']"/>Voter</button>
           </div>
+          <img src="{{selected_startup.media.sizes['thumbnail'].source_url}}" /><br/>
+          <span ng-bind-html="selected_startup.content"></span>
         </form>
       </div>
     </section>

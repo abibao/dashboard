@@ -25,7 +25,7 @@
             case 400:
               break;
             default:
-              window.location = '/404';
+              // window.location = '/404';
           }
           return $q.reject(res);
         }
