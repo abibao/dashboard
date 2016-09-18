@@ -17,7 +17,6 @@
     $httpProvider.interceptors.push(function($q) {
       return {
         responseError: function(res) {
-          console.log(res.status);
           switch (res.status) {
             case 401:
               window.location = '/login';

@@ -1,11 +1,54 @@
 #smf-choice {}
+  .form-wrapper {
+    background: @color-abibao-orange;
+  }
+  .error {
+    background: @color-abibao-orange;
+  }
 .message-page {
   .form-body {
-    .message-page-col-title {
-      color: @color-abibao-grey;
-      font-size: 1.5em;
-      line-height: 1.3em;
-      margin-bottom: 15px;
+    text-align: left;
+    #message-page-wrapper {
+      background: #f0f0f0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      margin: 0;
+      padding: 2rem;
+      .message-page-col-thumb{
+        width: 150px;
+        height: 150px;
+        background: #FFF;
+        border-radius: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+      }
+      .message-page-col {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1em;
+        margin: 0;
+        margin-left: 1rem;
+        padding: 0;
+        .message-page-col-title {
+          text-align: left;
+          width: 100%;
+          color: @color-abibao-grey;
+          font-size: 1.5em;
+          line-height: 1.3em;
+          margin: 0;
+          padding: 0;
+          padding-bottom: 1rem;
+        }
+        .message-page-col-description{
+          text-align: justify;
+        }
+      }
     }
   }
 }

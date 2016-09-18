@@ -1,6 +1,12 @@
 <section class="container message-page" id="smf-choice">
-  <section class="forms-container">
-    <section class="form-wrapper reverse">
+  <section class="forms-container" ng-if="loading_in_progress==false">
+    <section class="form-wrapper reverse" ng-if="selected_startup==false">
+      <header>
+        <h1>Impossible de valider votre vote</h1>
+        <h2>La startup n'existe pas !</h2>
+      </header>
+    </section>
+    <section class="form-wrapper reverse" ng-if="selected_startup!=false">
       <header>
         <h1>Validez votre vote pour "{{selected_startup.title}}" !</h1>
         <h2>En laissant votre email</h2>
@@ -13,10 +19,16 @@
           <div class="form-next-wrapper">
             <button class="button" type="submit" ng-disabled="formRegisterMail.$invalid" ga-track-event="['button', 'vote_smf', 'email']"/>Voter</button>
           </div>
+          <br/>
+          <br/>
           <div id="message-page-wrapper">
-            <img src="{{selected_startup.media.sizes['thumbnail'].source_url}}" /><br/>
-            <h3 class="message-page-col-title">Vous n’avez rien à faire, on s’occupe de tout</h3>
-            <span class="message-page-col-description" ng-bind-html="selected_startup.content"></span>
+            <div class="message-page-col-thumb">
+              <img width="150" height="150" src="{{selected_startup.media.sizes['thumbnail'].source_url}}" />
+            </div>
+            <div class="message-page-col">
+              <h3 class="message-page-col-title">{{selected_startup.title}}</h3>
+              <span class="message-page-col-description" ng-bind-html="selected_startup.content"></span>
+            </div>
           </div>
         </form>
       </div>
