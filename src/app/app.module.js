@@ -14,10 +14,4 @@
   angular.module('app').constant('config', {
     baseapi: baseapi
   })
-  // angular.module('app').config(['$httpProvider', function($httpProvider) {
-  //   $httpProvider.defaults.withCredentials = true;
-  // }]);
-  // angular.module('app').run(function(abibaoApiSvc) {
-  //   abibaoApiSvc.alive.getCSRF();
-  // });
 })(angular)
