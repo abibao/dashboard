@@ -7,7 +7,7 @@
         .setDomainName('auto')
         .setHybridMobileSupport(true)
         .logAllCalls(true)
-        .useDisplayFeatures(true)
+        .useDisplayFeatures(true);
     })
     .config(routes);
 

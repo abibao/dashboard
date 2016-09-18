@@ -12,6 +12,7 @@
   var baseapi = /localhost|local/.test(window.location.hostname) ? 'http://localhost:8080/v1' : false;
   if (baseapi === false) { baseapi = /pprod/.test(window.location.hostname) ? 'https://api.pprod.abibao.com/v1' : 'http://api.abibao.com/v1'; };
   angular.module('app').constant('config', {
-    baseapi: baseapi
+    baseapi: baseapi,
+    enableLogo: true
   });
 })(angular);

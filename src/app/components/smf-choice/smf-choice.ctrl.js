@@ -5,8 +5,10 @@
     .module('app')
     .controller('smfChoiceCtrl', smfChoiceCtrl)
 
-  function smfChoiceCtrl (Analytics, $scope, abibaoApiSvc, $location, $stateParams) {
+  function smfChoiceCtrl (Analytics, $rootScope, $scope, abibaoApiSvc, $location, $stateParams) {
     Analytics.pageView();
+    $rootScope.enableLogo = false;
+    $rootScope.isLoggedIn = true;
     $scope.loading_in_progress = true;
     $scope.selected_startup = false;
     abibaoApiSvc.startup.get({node: $stateParams.node}, function (res) {
