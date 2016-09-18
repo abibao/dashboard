@@ -221,16 +221,16 @@ gulp.task('development', ['build:dev', 'connect'], function() {
         runSequence(
             'less',
             'reload'
-        );
-    });
+        )
+    })
     gulp.watch(files.html, ['build:angular-template-cache', 'reload']);
     gulp.watch(files.js, function(callback) {
         runSequence(
             'inject-dependency',
             'reload'
             // 'test'
-        );
-    });
-});
+        )
+    })
+})
 
-gulp.task('default', ['development']);
+gulp.task('default', ['development'])

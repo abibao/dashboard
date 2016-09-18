@@ -1,5 +1,5 @@
 (function (angular) {
-  'use strict'
+  'use strict';
 
   angular
     .module('app')
@@ -16,4 +16,4 @@
       }
     })
   }
-})(angular)
+})(angular);
