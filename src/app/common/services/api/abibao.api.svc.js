@@ -3,6 +3,7 @@
     .factory('abibaoApiSvc', abibaoApiSvc);
 
   function abibaoApiSvc(userSvc, config, $http, $resource, $httpParamSerializer, $rootScope) {
+    $rootScope.enableLogo = config.enableLogo;
     $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
     $http.defaults.headers.patch['Content-Type'] = 'application/x-www-form-urlencoded';
 
