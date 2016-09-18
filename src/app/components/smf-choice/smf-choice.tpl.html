@@ -1,4 +1,4 @@
-<section class="container">
+<section class="container message-page" id="smf-choice">
   <section class="forms-container">
     <section class="form-wrapper reverse">
       <header>
@@ -13,8 +13,11 @@
           <div class="form-next-wrapper">
             <button class="button" type="submit" ng-disabled="formRegisterMail.$invalid" ga-track-event="['button', 'vote_smf', 'email']"/>Voter</button>
           </div>
-          <img src="{{selected_startup.media.sizes['thumbnail'].source_url}}" /><br/>
-          <span ng-bind-html="selected_startup.content"></span>
+          <div id="message-page-wrapper">
+            <img src="{{selected_startup.media.sizes['thumbnail'].source_url}}" /><br/>
+            <h3 class="message-page-col-title">Vous n’avez rien à faire, on s’occupe de tout</h3>
+            <span class="message-page-col-description" ng-bind-html="selected_startup.content"></span>
+          </div>
         </form>
       </div>
     </section>
