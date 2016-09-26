@@ -1,7 +1,8 @@
 {
   "name": "abibao-mvp",
   "authors": [
-    "Max Bryselbout <max.bryselbout@gmail.com>"
+    "Max Bryselbout <max.bryselbout@gmail.com>",
+    "Gilles Perreymond <gperreymond@gmail.com>"
   ],
   "description": "",
   "main": "index.html",
@@ -26,6 +27,7 @@
     "angular-animate": "~1.5.x",
     "angular-google-analytics": "~1.1.x",
     "angular-loading-bar": "~0.9.x",
-    "angular-sanitize": "~1.5.x"
+    "angular-sanitize": "~1.5.x",
+    "matchmedia-ng": "~1.0.x"
   }
 }
