@@ -7,12 +7,14 @@
     'ngCookies',
     'ngAnimate',
     'ngSanitize',
-    'angular-loading-bar'
+    'angular-loading-bar',
+    'matchmedia-ng'
   ]);
-  var baseapi = /localhost|local/.test(window.location.hostname) ? 'http://localhost:8080/v1' : false;
+  var baseapi = /localhost|local/.test(window.location.hostname) ? 'http://localhost:8383/v1' : false;
   if (baseapi === false) { baseapi = /pprod/.test(window.location.hostname) ? 'https://api.pprod.abibao.com/v1' : 'http://api.abibao.com/v1'; };
   angular.module('app').constant('config', {
     baseapi: baseapi,
-    enableLogo: true
+    enableLogo: true,
+    enableLogoSMF: false
   });
 })(angular);

@@ -1,3 +1,4 @@
+<!-- NOT ON PHONE -->
 <section class="container message-page" id="smf-choice">
   <section class="forms-container" ng-if="loading_in_progress==false">
     <section class="form-wrapper reverse" ng-if="selected_startup==false">
@@ -23,9 +24,10 @@
           </div>
         </div>
         <br />
+        <br />
         <label class="nota">Nous demandons votre email car un seul vote est autorisé par personne</label>
-        <form class="form-text" novalidate>
-          <input type="email" placeholder="mon email" />
+        <form class="form-text" novalidate ng-submit="startupVote()">
+          <input type="email" placeholder="mon email" ng-model="email" name="email" />
           <div class="form-next-wrapper">
             <button class="button" type="submit" ga-track-event="['button', 'vote_smf', 'email']"/>Voter</button>
           </div>
