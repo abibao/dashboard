@@ -43,12 +43,19 @@
         });
 
         $scope.submitAnswer = function(response) {
+
+          if (response.label === 'ABIBAO_ANSWER_ASKING_CGU' && response.answer === 'no') {
+            // ici je ne fais rien
+            // mais on peut faire ce que l'on veut du coup !
+            return null;
+          }
                 abibaoApiSvc.survey.answers({
                     urn: $stateParams.urn
                 }, {
                     label: response.label,
                     answer: response.answer
                 }, function() {
+
                     answsers.push(response);
                     // console.log(answsers);
                     if ($scope.progress.current >= $scope.progress.max) {
