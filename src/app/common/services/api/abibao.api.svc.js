@@ -3,6 +3,8 @@
     .factory('abibaoApiSvc', abibaoApiSvc);
 
   function abibaoApiSvc(userSvc, config, $http, $resource, $httpParamSerializer, $rootScope) {
+    $rootScope.enableLogo = config.enableLogo;
+    $rootScope.enableLogoSMF = config.enableLogoSMF;
     $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
     $http.defaults.headers.patch['Content-Type'] = 'application/x-www-form-urlencoded';
 
@@ -73,6 +75,19 @@
       charity: $resource(config.baseapi + '/:action/charity',{},{
         'query':  {method:'GET', isArray:true, params:{action:'entities'}},
         'set':  {method:'PATCH', params:{action:'auth',charity:'@charity'}}
+      }),
+      startup: $resource(config.baseapi + '/wp_json/smf/startups/:node',{},{
+        node:'@node'
+      }),
+      startupVote: $resource(config.baseapi + '/wp_json/smf/startups/vote', {}, {
+        'send' : {
+          method:'POST',
+          params: {
+            action: 'send',
+            email: '@email',
+            startup: '@startup'
+          }
+        }
       })
     }
 

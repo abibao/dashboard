@@ -1,4 +1,4 @@
-(function(angular) {
+(function (angular) {
   'use strict';
   angular.module('app', [
     'angular-google-analytics',
@@ -6,15 +6,15 @@
     'ngResource',
     'ngCookies',
     'ngAnimate',
-    'ngSanitize'
+    'ngSanitize',
+    'angular-loading-bar',
+    'matchmedia-ng'
   ]);
+  var baseapi = /localhost|local/.test(window.location.hostname) ? 'http://localhost:8383/v1' : false;
+  if (baseapi === false) { baseapi = /pprod/.test(window.location.hostname) ? 'https://api.pprod.abibao.com/v1' : 'http://api.abibao.com/v1'; };
   angular.module('app').constant('config', {
-    baseapi: /pprod|localhost|local/.test(window.location.hostname) ? 'https://api.pprod.abibao.com/v1' : 'http://api.abibao.com/v1'
+    baseapi: baseapi,
+    enableLogo: true,
+    enableLogoSMF: false
   });
-  // angular.module('app').config(['$httpProvider', function($httpProvider) {
-  //   $httpProvider.defaults.withCredentials = true;
-  // }]);
-  // angular.module('app').run(function(abibaoApiSvc) {
-  //   abibaoApiSvc.alive.getCSRF();
-  // });
 })(angular);

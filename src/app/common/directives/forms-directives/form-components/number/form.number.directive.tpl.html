@@ -15,7 +15,7 @@
             assets/img/survey/fleche_suivant@3x.png 3x"
       ng-click="$ctrl.next()"/>
     <h1>{{$ctrl.item.question}}</h1>
-    <h2>{{$ctrl.item.description}}</h2>
+    <h2 ng-bind-html="$ctrl.item.description"></h2>
   </header>
   <form-message message="$ctrl.formError.message" close="$ctrl.formError.close"></form-message>
   <div class="form-body ">

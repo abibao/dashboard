@@ -1,9 +1,8 @@
 {
   "name": "dashboard",
-  "version": "1.2.5",
+  "version": "1.2.7",
   "description": "Abibao dashboard MVP",
   "scripts": {
-    "check:updates": "./node_modules/.bin/ncu",
     "server:deve": "clear && gulp development"
   },
   "repository": {
@@ -23,7 +22,7 @@
   "homepage": "https://gitlab.com/abibao/dashboard#README",
   "main": "gulpfile.js",
   "engines": {
-    "node": "=6.2.2"
+    "node": ">6"
   },
   "dependencies": {
     "hapi": "13.3.0",
