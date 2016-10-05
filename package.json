@@ -22,7 +22,7 @@
   "homepage": "https://gitlab.com/abibao/dashboard#README",
   "main": "gulpfile.js",
   "engines": {
-    "node": ">6"
+    "node": "~6"
   },
   "dependencies": {
     "hapi": "13.3.0",
