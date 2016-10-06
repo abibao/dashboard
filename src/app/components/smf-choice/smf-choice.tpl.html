@@ -27,7 +27,7 @@
         <br />
         <label class="nota">Nous demandons votre email car un seul vote est autorisé par personne</label>
         <form class="form-text" novalidate ng-submit="startupVote()">
-          <input type="email" placeholder="mon email" ng-model="email" name="email" />
+          <input type="email" placeholder="mon email" ng-model="user.email" name="email" />
           <div class="form-next-wrapper">
             <button class="button" type="submit" ga-track-event="['button', 'vote_smf', 'email']"/>Voter</button>
           </div>

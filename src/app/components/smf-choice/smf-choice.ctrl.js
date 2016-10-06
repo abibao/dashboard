@@ -1,7 +1,5 @@
 (function (angular) {
-  'use strict';
-
-  angular
+angular
     .module('app')
     .controller('smfChoiceCtrl', smfChoiceCtrl)
 
@@ -25,9 +23,11 @@
       $scope.selected_startup = false;
     });
     // set vote
-    $scope.email = '';
+    $scope.user = {
+      email: ''
+    };
     $scope.startupVote = function() {
-      console.log('startupVote', $scope.email, $stateParams.node);
+      console.log('startupVote', $scope.user.email, $stateParams.node);
     };
   };
 })(angular);
