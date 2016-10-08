@@ -3,7 +3,7 @@
     var ctrl = this;
     this.selectChoice = function(choice) {
       if(choice.meta==='ABIBAO_CGU__NO') {
-        window.location = 'http://www.abibao.com/cgu.html'
+        window.location = 'http://abibao.com/butwhy.html'
         return null;
       }
       if (!this.item.multipleSelections) {

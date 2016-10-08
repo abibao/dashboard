@@ -76,18 +76,9 @@
         'query':  {method:'GET', isArray:true, params:{action:'entities'}},
         'set':  {method:'PATCH', params:{action:'auth',charity:'@charity'}}
       }),
-      startup: $resource(config.baseapi + '/wp_json/smf/startups/:node',{},{
-        node:'@node'
-      }),
-      startupVote: $resource(config.baseapi + '/wp_json/smf/startups/vote', {}, {
-        'send' : {
-          method:'POST',
-          params: {
-            action: 'send',
-            email: '@email',
-            startup: '@startup'
-          }
-        }
+      startups: $resource(config.baseapi + '/wp_json/smf/startups/:node', {}, {
+        'get' : { node: '@node' },
+        'vote' : { method: 'POST', url: config.baseapi + '/wp_json/smf/startups/:node/vote', params: { node: '@node' } }
       })
     }
 
