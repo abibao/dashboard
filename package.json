@@ -3,7 +3,7 @@
   "version": "1.2.7",
   "description": "Abibao dashboard MVP",
   "scripts": {
-    "server:deve": "clear && gulp development"
+    "start": "clear && gulp development"
   },
   "repository": {
     "type": "git",
