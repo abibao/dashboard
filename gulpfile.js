@@ -18,6 +18,9 @@ var ngAnnotate = require('gulp-ng-annotate');
 var runSequence = require('run-sequence');
 var del = require('del');
 
+var nconf = require('nconf')
+nconf.argv().env().file({ file: 'nconf-deve.json' })
+
 function handleError(err) {
     console.log(err.message);
     this.emit('end');
@@ -46,7 +49,8 @@ var files = {
         'src/assets/less/master.less',
         'src/app/partials/**/*.less',
         'src/app/components/**/*.less',
-        'src/app/common/directives/**/*.less'
+        'src/app/common/directives/**/*.less',
+        'src/assets/less/media.less'
     ],
     html: [
         'src/*.html',
@@ -77,8 +81,9 @@ var files = {
 gulp.task('connect', function() {
     connect.server({
         root: ['src'],
-        https: true,
-        host: 'dashboard.local.net',
+        https: false,
+        host: nconf.get('ABIBAO_DASHBOARD_EXPOSE_IP'),
+        port: nconf.get('ABIBAO_DASHBOARD_EXPOSE_PORT'),
         livereload: true,
         fallback: files.dev.indexHtml
     });
@@ -216,16 +221,16 @@ gulp.task('development', ['build:dev', 'connect'], function() {
         runSequence(
             'less',
             'reload'
-        );
-    });
+        )
+    })
     gulp.watch(files.html, ['build:angular-template-cache', 'reload']);
     gulp.watch(files.js, function(callback) {
         runSequence(
             'inject-dependency',
             'reload'
             // 'test'
-        );
-    });
-});
+        )
+    })
+})
 
-gulp.task('default', ['development']);
+gulp.task('default', ['development'])

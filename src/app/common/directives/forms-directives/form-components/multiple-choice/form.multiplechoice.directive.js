@@ -2,6 +2,10 @@
   function formMultipleChoiceCtrl() {
     var ctrl = this;
     this.selectChoice = function(choice) {
+      if(choice.meta==='ABIBAO_CGU__NO') {
+        window.location = 'http://abibao.com/butwhy.html'
+        return null;
+      }
       if (!this.item.multipleSelections) {
         this.item.choices.forEach(function(item) {
           item.selected = false;

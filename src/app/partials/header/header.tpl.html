@@ -4,8 +4,8 @@ test
   </div>
   <div id="header-wrapper">
     <div class="container">
-      <img id="logo" src="assets/img/abibao_logo.png" srcset="assets/img/abibao_logo@2x.png 2x,
-            assets/img/abibao_logo@3x.png 3x" alt="" />
+      <img ng-if="enableLogoSMF" src="assets/img/logo_dashboard_smf.png" />
+      <img ng-if="enableLogo" src="assets/img/abibao_logo.png" srcset="assets/img/abibao_logo@2x.png 2x, assets/img/abibao_logo@3x.png 3x" alt="" />
       <nav>
         <ul>
           <!-- <li><a href="#">Qui sommes-nous ?</a></li> -->
