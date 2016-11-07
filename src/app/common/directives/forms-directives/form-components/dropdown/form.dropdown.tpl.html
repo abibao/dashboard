@@ -4,32 +4,33 @@
       ng-if="$ctrl.progress.current > 1"
       class="form-nav previous"
       src="assets/img/survey/fleche_retour.png"
-      srcset="assets/img/survey/fleche_retour@2x.png 2x,
-            assets/img/survey/fleche_retour@3x.png 3x"
+      srcset="assets/img/survey/fleche_retour@2x.png 2x, assets/img/survey/fleche_retour@3x.png 3x"
       ng-click="$ctrl.previous()"/>
     <img
       ng-if="$ctrl.progress.maxIndex > progress.current"
       class="form-nav next"
       src="assets/img/survey/fleche_suivant.png"
-      srcset="assets/img/survey/fleche_suivant@2x.png 2x,
-            assets/img/survey/fleche_suivant@3x.png 3x"
+      srcset="assets/img/survey/fleche_suivant@2x.png 2x, assets/img/survey/fleche_suivant@3x.png 3x"
       ng-click="$ctrl.next()"/>
     <h1>{{$ctrl.item.question}}</h1>
     <h2 ng-bind-html="$ctrl.item.description"></h2>
   </header>
   <form-message message="$ctrl.formError.message" close="$ctrl.formError.close"></form-message>
   <div class="form-body ">
-    <form id="form-dropdown"
-  name="$ctrl.formDropdown"
-  novalidate
-  ng-submit="$ctrl.submitChoice($ctrl.selected)">
-  <select
-    ng-options="choice.urn as choice.text for choice in $ctrl.item.choices"
-    ng-model="$ctrl.selected"
-    ng-required="true">
-    <option ng-if="$ctrl.item.placeholder" value="">{{$ctrl.item.placeholder}}</option>
-  </select>
-  <button class="button" type="submit" ng-disabled="$ctrl.formDropdown.$invalid"/>Suivant</button>
-</form>
-</div>
+    <form
+      id="form-dropdown"
+      name="$ctrl.formDropdown"
+      novalidate
+      ng-submit="$ctrl.submitChoice($ctrl.selected)">
+      <select
+        ng-model="$ctrl.selected"
+        ng-required="true">
+        <option ng-if="$ctrl.item.placeholder">{{$ctrl.item.placeholder}}</option>
+        <option ng-repeat="choice in $ctrl.item.choices">{{choice.text}}</option>
+        <option ng-if="$ctrl.item.addCustomOption" value="ABIBAO__CUSTOM_OPTION">{{$ctrl.item.addCustomOptionLabel}}</option>
+      </select>
+      <input ng-if="$ctrl.selectedCustomOption()" type="text" onchange="$ctrl.item.addCustomOptionAnswer=this.text">{{$ctrl.item.addCustomOptionAnswer}}</input>
+      <button class="button" type="submit" ng-disabled="$ctrl.formDropdown.$invalid"/>Suivant</button>
+    </form>
+  </div>
 </section>

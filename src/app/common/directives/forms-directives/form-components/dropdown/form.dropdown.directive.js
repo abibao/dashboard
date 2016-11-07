@@ -2,11 +2,18 @@
   function formDropdownCtrl() {
     var ctrl = this;
     if (!this.item.placeholder) {
-      this.selected = this.item.choices[0].urn;
+      this.selected = this.item.choices[0];
     }
-    this.submitChoice = function(choiceUrn) {
+    this.selectChoice = function(index) {
+      this.selected = this.item.choices[index];
+      console.log(this.selected)
+    }
+    this.submitChoice = function() {
       if (this.formDropdown.$valid) {
-        this.submitAnswer({label:this.item.label,answer:choiceUrn});
+        this.submitAnswer({
+          label:this.item.label,
+          answer: this.selected.urn
+        });
       }
       else {
         $ctrl.formError = {
