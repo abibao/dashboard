@@ -2,20 +2,16 @@
   function formDropdownCtrl() {
     var ctrl = this;
     if (!this.item.placeholder) {
-      this.selected = this.item.choices[0];
+      this.selected = this.item.choices[0].urn;
     }
-    this.selectChoice = function(index) {
-      this.selected = this.item.choices[index];
-      console.log(this.selected)
-    }
-    this.submitChoice = function() {
+    ctrl.customOptionAnswer = ''
+    this.submitChoice = function(choiceUrn) {
       if (this.formDropdown.$valid) {
-        this.submitAnswer({
-          label:this.item.label,
-          answer: this.selected.urn
-        });
-      }
-      else {
+        if (choiceUrn === 'ABIBAO_CUSTOM_ANSWER') {
+          choiceUrn = ctrl.customOptionAnswer;
+        }
+        this.submitAnswer({label: this.item.label, answer: choiceUrn});
+      } else {
         $ctrl.formError = {
           message : 'Oups, vous devez faire un choix dans le liste.',
           close : true
