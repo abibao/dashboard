@@ -4,7 +4,7 @@
     if (!this.item.placeholder) {
       this.selected = this.item.choices[0].urn;
     }
-    ctrl.customOptionAnswer = ''
+    ctrl.customOptionAnswer = '';
     this.submitChoice = function(choiceUrn) {
       if (this.formDropdown.$valid) {
         if (choiceUrn === 'ABIBAO_CUSTOM_ANSWER') {

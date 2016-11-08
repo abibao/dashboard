@@ -44,30 +44,20 @@
 
     $scope.submitAnswer = function(response) {
         abibaoApiSvc.survey.answers({
-            urn: $stateParams.urn
+          urn: $stateParams.urn
         }, {
-            label: response.label,
-            answer: response.answer
+          label: response.label,
+          answer: response.answer
         }, function() {
-
-            answsers.push(response);
-            // console.log(answsers);
-            if ($scope.progress.current >= $scope.progress.max) {
-              // if (survey.screenThankYouContent) {
-              //     $state.go('survey.screencontent', {
-              //         content: survey.screenThankYouContent,
-              //         type: 'thankYou'
-              //     });
-              // }
-              // else {
-                getNextState().then(function(nextState) {
-                    $state.go(nextState.stateName, nextState.params);
-                });
-              // }
-            } else {
-                $scope.progress.maxIndex = answsers.length + 1;
-                $scope.next();
-            }
+          answsers.push(response);
+          if ($scope.progress.current >= $scope.progress.max) {
+            getNextState().then(function(nextState) {
+              $state.go(nextState.stateName, nextState.params);
+            });
+          } else {
+            $scope.progress.maxIndex = answsers.length + 1;
+            $scope.next();
+          }
         });
       }
   }

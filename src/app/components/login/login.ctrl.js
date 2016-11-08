@@ -6,7 +6,6 @@
     .controller('loginCtrl', loginCtrl);
 
   function loginCtrl($scope, userSvc ,abibaoApiSvc, $state, $stateParams,getNextState) {
-    console.log($stateParams);
     $scope.title = 'login';
     if ($stateParams.fingerprint) {
       abibaoApiSvc.individuals.autologin({
