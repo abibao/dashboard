@@ -4,11 +4,14 @@
     if (!this.item.placeholder) {
       this.selected = this.item.choices[0].urn;
     }
+    ctrl.customOptionAnswer = '';
     this.submitChoice = function(choiceUrn) {
       if (this.formDropdown.$valid) {
-        this.submitAnswer({label:this.item.label,answer:choiceUrn});
-      }
-      else {
+        if (choiceUrn === 'ABIBAO_CUSTOM_ANSWER') {
+          choiceUrn = ctrl.customOptionAnswer;
+        }
+        this.submitAnswer({label: this.item.label, answer: choiceUrn});
+      } else {
         $ctrl.formError = {
           message : 'Oups, vous devez faire un choix dans le liste.',
           close : true
