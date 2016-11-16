@@ -8,6 +8,8 @@
     $scope.userCredentials = {
       email : locationEmailInterceptor(),
       entity : locationEntityInterceptor(),
+      survey : locationSurveyInterceptor(),
+      source : locationSourceInterceptor(),
       password : ''
     }
     $scope.step = ($scope.userCredentials.email) ? 2 : 1;
@@ -32,6 +34,12 @@
       }
       if ($scope.userCredentials.entity) {
         credentials.entity = $scope.userCredentials.entity;
+      }
+      if ($scope.userCredentials.survey) {
+        credentials.survey = $scope.userCredentials.survey;
+      }
+      if ($scope.userCredentials.source) {
+        credentials.source = $scope.userCredentials.source;
       }
       abibaoApiSvc.individuals.register(credentials
         , function(res) {
@@ -72,5 +80,22 @@
       }
       return false;
     }
+
+    function locationSurveyInterceptor() {
+      var locationSearchSurvey = $location.search().registersurvey;
+      if (typeof locationSearchSurvey == 'string') {
+        return locationSearchSurvey;
+      }
+      return false;
+    }
+
+    function locationSourceInterceptor() {
+      var locationSearchSource = $location.search().registersource;
+      if (typeof locationSearchSource == 'string') {
+        return locationSearchSource;
+      }
+      return false;
+    }
+
   }
 })(angular);
