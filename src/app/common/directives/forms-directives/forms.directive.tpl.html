@@ -2,6 +2,7 @@
 ABIBAO_COMPONENT_MULTIPLE_CHOICE
 ABIBAO_COMPONENT_NUMBER
 ABIBAO_COMPONENT_DROPDOWN
+ABIBAO_COMPONENT_STATEMENT
 
 ABIBAO_COMPONENT_SHORT_TEXT
 ABIBAO_COMPONENT_LONG_TEXT
@@ -9,11 +10,12 @@ ABIBAO_COMPONENT_YES_NO
  -->
 
 <section class="forms-container">
-      <div ng-switch="item.type">
-        <form-number ng-switch-when="ABIBAO_COMPONENT_NUMBER" item="item" submit-answer="submitAnswer" progress="progress" previous="previous" next="next"></form-number>
-        <form-multiple-choice ng-switch-when="ABIBAO_COMPONENT_MULTIPLE_CHOICE" item="item" submit-answer="submitAnswer" progress="progress" previous="previous" next="next"></form-multiple-choice>
-        <form-dropdown ng-switch-when="ABIBAO_COMPONENT_DROPDOWN" item="item" submit-answer="submitAnswer" progress="progress" previous="previous" next="next"></form-dropdown>
-        <form-yes-no ng-switch-when="ABIBAO_COMPONENT_YES_NO" item="item" submit-answer="submitAnswer" progress="progress" previous="previous" next="next"></form-yes-no>
-        <div ng-switch-when="ABIBAO_COMPONENT_SHORT_TEXT" form-text></div>
-      </div>
+  <div ng-switch="item.type">
+    <form-number ng-switch-when="ABIBAO_COMPONENT_NUMBER" item="item" submit-answer="submitAnswer" progress="progress" previous="previous" next="next"></form-number>
+    <form-multiple-choice ng-switch-when="ABIBAO_COMPONENT_MULTIPLE_CHOICE" item="item" submit-answer="submitAnswer" progress="progress" previous="previous" next="next"></form-multiple-choice>
+    <form-dropdown ng-switch-when="ABIBAO_COMPONENT_DROPDOWN" item="item" submit-answer="submitAnswer" progress="progress" previous="previous" next="next"></form-dropdown>
+    <form-yes-no ng-switch-when="ABIBAO_COMPONENT_YES_NO" item="item" submit-answer="submitAnswer" progress="progress" previous="previous" next="next"></form-yes-no>
+    <form-statement ng-switch-when="ABIBAO_COMPONENT_STATEMENT" item="item" submit-answer="submitAnswer" progress="progress" previous="previous" next="next"></form-statement>
+    <div ng-switch-when="ABIBAO_COMPONENT_SHORT_TEXT" form-text></div>
+  </div>
 </section>
