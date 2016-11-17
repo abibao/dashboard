@@ -22,7 +22,7 @@
   angular
     .module('app')
     .component("formDropdown", {
-        templateUrl: 'app/common/directives/forms-directives/form-components/dropdown/form.dropdown.tpl.html',
+        templateUrl: 'app/common/directives/forms-directives/form-components/dropdown/form.dropdown.directive.tpl.html',
         controller : formDropdownCtrl,
         bindings: {item: '=', submitAnswer: '=', progress:'=', previous:'=',next:'='}
     });

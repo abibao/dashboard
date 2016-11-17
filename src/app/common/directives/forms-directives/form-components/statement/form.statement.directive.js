@@ -2,7 +2,7 @@
   angular
     .module('app')
     .component("formStatement", {
-        templateUrl: 'app/common/directives/forms-directives/form-components/statement/form.statement.tpl.html',
+        templateUrl: 'app/common/directives/forms-directives/form-components/statement/form.statement.directive.tpl.html',
         bindings: {item: '=', submitAnswer: '=', progress:'=', previous:'=',next:'='}
     });
 })(angular);
