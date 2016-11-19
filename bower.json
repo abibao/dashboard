@@ -28,7 +28,6 @@
     "angular-google-analytics": "~1.1.x",
     "angular-loading-bar": "~0.9.x",
     "angular-sanitize": "~1.5.x",
-    "matchmedia-ng": "~1.0.x",
-    "angular-websocket": "^2.0.0"
+    "matchmedia-ng": "~1.0.x"
   }
 }
