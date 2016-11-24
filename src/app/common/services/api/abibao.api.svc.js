@@ -80,6 +80,7 @@
       }),
       startups: $resource(config.baseapi + '/wp_json/smf/startups/:node', {}, {
         'get' : { node: '@node' },
+        'getScore' : { method: 'GET', url: config.baseapi + '/wp_json/smf/startups/:node/score', params: { node: '@node' } },
         'vote' : { method: 'POST', url: config.baseapi + '/wp_json/smf/startups/:node/vote', params: { node: '@node' } }
       })
     }
