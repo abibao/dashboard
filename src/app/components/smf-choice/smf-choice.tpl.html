@@ -9,28 +9,23 @@
     <section class="form-wrapper reverse" ng-if="selected_startup!=false">
       <header>
         <h1>Validez votre vote !</h1>
-        <h2>En laissant votre email</h2>
+        <h2>En laissant votre email, car un seul vote est autorisé par personne.</h2>
       </header>
       <form-message message="formError.message" close="formError.close"></form-message>
       <div class="form-body">
         <div id="message-page-wrapper"  style="justify-content: center;">
-          <div class="message-page-col-thumb col-1">
-            <img width="180" height="180" src="{{selected_startup.media.sizes['featured-thumbnail'].source_url}}" />
-          </div>
-          <div class="message-page-col col-1">
-            <h3 class="message-page-col-title">{{selected_startup.title}}</h3>
-            <span class="message-page-col-description" ng-bind-html="selected_startup.content"></span>
-          </div>
-        </div>
-        <br/>
-        <br/>
-        <div id="message-page-wrapper"  style="justify-content: center;">
           <div class="message-page-col" style="width: 100%;">
             <form style="width: 100%;max-width: 600px;" class="form-text" novalidate ng-submit="startupVote()">
-              <h3 class="message-page-col-title">Nous demandons votre email car un seul vote est autorisé par personne</h3>
               <input style="width: 100%;" type="email" placeholder="Votre email" ng-model="user.email" name="email" />
               <button class="button" type="submit" ga-track-event="['button', 'vote_smf', 'email']"/>Voter</button>
             </form>
+          </div>
+        </div>
+        <br/>
+        <div id="message-page-wrapper" style="justify-content: center;">
+          <div class="message-page-col-thumb col-1">
+            <h3 class="message-page-col-title">{{selected_startup.title}}</h3>
+            <img width="180" height="180" src="{{selected_startup.media.sizes['featured-thumbnail'].source_url}}" />
           </div>
         </div>
       </div>

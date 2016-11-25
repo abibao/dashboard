@@ -34,7 +34,7 @@ angular
         startup: $stateParams.node
       }, function(res) {
         if (res.converted===1) {
-          $state.go('smf-thanks');
+          $state.go('smf-thanks', {node: $stateParams.node});
         } else {
           $state.go('smf-thanks-welcome', {email: $scope.user.email, node: $stateParams.node});
         }
