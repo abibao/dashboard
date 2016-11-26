@@ -13,7 +13,7 @@
       srcset="assets/img/survey/fleche_suivant@2x.png 2x, assets/img/survey/fleche_suivant@3x.png 3x"
       ng-click="$ctrl.next()"/>
     <h1>{{$ctrl.item.question}}</h1>
-    <h2 ng-bind-html="$ctrl.item.description"></h2>
+    <h2 ng-bind-html="$ctrl.explicitlyTrustedHtml"></h2>
   </header>
   <div class="form-body">
     <form id="form-statement" novalidate>
