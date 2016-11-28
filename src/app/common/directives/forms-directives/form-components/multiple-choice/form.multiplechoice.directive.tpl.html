@@ -24,11 +24,7 @@
         <button class="button choice" ng-click="$ctrl.selectChoice({meta: 'ABIBAO_CUSTOM_ANSWER'})" ng-class="{'selected' : $ctrl.customOptionAnswer.selected}">{{$ctrl.item.addCustomOptionLabel}}</button>
         <input type="text" ng-if="$ctrl.customOptionAnswer.selected" ng-model="$ctrl.customOptionAnswer.answer" placeholder="Saisir un texte" value="$ctrl.customOptionAnswer.answer" />
       </div>
-      <button
-        class="button submit"
-        ng-click="$ctrl.submitChoice()">
-        Valider
-      </button>
+      <button ng-if="$ctrl.customOptionAnswer.selected || $ctrl.item.multipleSelections" class="button submit" ng-click="$ctrl.submitChoice()">Valider</button>
     </form>
   </div>
 </section>

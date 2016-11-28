@@ -59,10 +59,20 @@
         url:'/email-sended',
         templateUrl: 'app/components/messages/email-sended/email-sended.tpl.html'
       })
-      .state('smfchoice', {
+      .state('smf-choice', {
         url:'/smf-choice/:node',
         templateUrl: 'app/components/smf-choice/smf-choice.tpl.html',
         controller : 'smfChoiceCtrl'
+      })
+      .state('smf-thanks', {
+        url:'/smf-thanks/:node',
+        templateUrl: 'app/components/smf-thanks/smf-thanks.tpl.html',
+        controller : 'smfThanksCtrl'
+      })
+      .state('smf-thanks-welcome', {
+        url:'/smf-thanks-welcome/:email/:node',
+        templateUrl: 'app/components/smf-thanks-welcome/smf-thanks-welcome.tpl.html',
+        controller : 'smfThanksWelcomeCtrl'
       })
       .state('charitychoice', {
         url:'/charity-choice',

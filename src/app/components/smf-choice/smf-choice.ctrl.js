@@ -33,11 +33,10 @@ angular
         email: $scope.user.email,
         startup: $stateParams.node
       }, function(res) {
-        /* GPE */
         if (res.converted===1) {
-          // console.log(res.email+' is already converted')
+          $state.go('smf-thanks', {node: $stateParams.node});
         } else {
-          // console.log(res.email+' has to be converted')
+          $state.go('smf-thanks-welcome', {email: $scope.user.email, node: $stateParams.node});
         }
         $scope.loading_in_progress = false;
       }, function(error) {

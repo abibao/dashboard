@@ -52,7 +52,7 @@
   angular
     .module('app')
     .component("formMultipleChoice", {
-        templateUrl: 'app/common/directives/forms-directives/form-components/multiple-choice/form.multiplechoice.tpl.html',
+        templateUrl: 'app/common/directives/forms-directives/form-components/multiple-choice/form.multiplechoice.directive.tpl.html',
         controller : formMultipleChoiceCtrl,
         bindings: {item: '=', submitAnswer: '=', progress: '=', previous: '=', next: '='}
     });

@@ -1,0 +1,30 @@
+<section class="container message-page">
+  <section class="forms-container">
+    <section class="form-wrapper reverse">
+      <header>
+        <h1>Opportunité : +3 points de votes ?</h1>
+        <h2>En devenant membre d’Abibao</h2>
+      </header>
+      <div class="form-body">
+        <div id="message-page-wrapper">
+          <div class="message-page-col col-1">
+            <button class="button" ng-click="registerEmail()" ga-track-event="['button', 'smf_thanks', 'register']">
+              Devenir membre d'Abibao (+3)
+            </button>
+          </div>
+        </div>
+        <div id="message-page-wrapper">
+          <div class="message-page-col col-1">
+              Le saviez-vous ? Ce concours est organisé par Abibao. Une communauté qui permet de financer gratuitement des associations en répondant anonymement à des sondages. Rejoignez-nous !
+          </div>
+        </div>
+        <br/>
+        <div id="message-page-wrapper" style="justify-content: center;">
+          <div class="message-page-col-thumb col-1">
+            <img width="180" height="180" src="{{selected_startup.media.sizes['featured-thumbnail'].source_url}}" />
+            <h3 class="message-page-col-title">{{selected_startup.title}} totalise {{selected_startup.score}} votes</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+</section>

@@ -1,5 +1,4 @@
-<!-- NOT ON PHONE -->
-<section class="container message-page" id="smf-choice">
+<section class="container message-page">
   <section class="forms-container" ng-if="loading_in_progress==false">
     <section class="form-wrapper reverse" ng-if="selected_startup==false">
       <header>
@@ -10,28 +9,25 @@
     <section class="form-wrapper reverse" ng-if="selected_startup!=false">
       <header>
         <h1>Validez votre vote !</h1>
-        <h2>En laissant votre email</h2>
+        <h2>En laissant votre email, car un seul vote est autorisé par personne.</h2>
       </header>
       <form-message message="formError.message" close="formError.close"></form-message>
       <div class="form-body">
-        <div id="message-page-wrapper">
-          <div class="message-page-col-thumb">
-            <img width="180" height="180" src="{{selected_startup.media.sizes['featured-thumbnail'].source_url}}" />
-          </div>
-          <div class="message-page-col">
-            <h3 class="message-page-col-title">{{selected_startup.title}}</h3>
-            <span class="message-page-col-description" ng-bind-html="selected_startup.content"></span>
+        <div id="message-page-wrapper"  style="justify-content: center;">
+          <div class="message-page-col" style="width: 100%;">
+            <form style="width: 100%;max-width: 600px;" class="form-text" novalidate ng-submit="startupVote()">
+              <input style="width: 100%;" type="email" placeholder="Votre email" ng-model="user.email" name="email" />
+              <button class="button" type="submit" ga-track-event="['button', 'vote_smf', 'email']"/>Voter</button>
+            </form>
           </div>
         </div>
-        <br />
-        <br />
-        <label class="nota">Nous demandons votre email car un seul vote est autorisé par personne</label>
-        <form class="form-text" novalidate ng-submit="startupVote()">
-          <input type="email" placeholder="mon email" ng-model="user.email" name="email" />
-          <div class="form-next-wrapper">
-            <button class="button" type="submit" ga-track-event="['button', 'vote_smf', 'email']"/>Voter</button>
+        <br/>
+        <div id="message-page-wrapper" style="justify-content: center;">
+          <div class="message-page-col-thumb col-1">
+            <h3 class="message-page-col-title">{{selected_startup.title}}</h3>
+            <img width="180" height="180" src="{{selected_startup.media.sizes['featured-thumbnail'].source_url}}" />
           </div>
-        </form>
+        </div>
       </div>
     </section>
   </section>

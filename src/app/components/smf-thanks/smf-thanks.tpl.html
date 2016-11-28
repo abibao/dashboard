@@ -1,0 +1,31 @@
+<section class="container message-page">
+  <section class="forms-container">
+    <section class="form-wrapper reverse">
+      <header>
+        <h1>Vous êtes vraiment formidable !</h1>
+        <h2>Vos amis doivent l'être aussi</h2>
+      </header>
+      <div class="form-body">
+        <div id="message-page-wrapper">
+          <div class="message-page-col col-1">
+            <button class="button" ng-click="shareFacebook()" ga-track-event="['button', 'smf_thanks', 'share_facebook']">
+              Partager sur Facebook pour aider Abibao
+            </button>
+          </div>
+        </div>
+        <div id="message-page-wrapper">
+          <div class="message-page-col col-1">
+            En partageant cet événement à vos amis vous aidez des startups à se faire connaître et vous participez au rayonnement d'Abibao !
+            Après ça vous ne serez plus formidable mais extraordinaire.
+          </div>
+        </div>
+        <br/>
+        <div id="message-page-wrapper" style="justify-content: center;">
+          <div class="message-page-col-thumb col-1">
+            <img width="180" height="180" src="{{selected_startup.media.sizes['featured-thumbnail'].source_url}}" />
+            <h3 class="message-page-col-title">{{selected_startup.title}} totalise {{selected_startup.score}} votes</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+</section>

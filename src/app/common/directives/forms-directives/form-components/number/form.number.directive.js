@@ -1,7 +1,7 @@
 (function(angular) {
   function formNumberCtrl() {
     var $ctrl = this;
-    this.numberRes = 0;
+    this.numberRes = '';
     this.submitChoice = function(res) {
       if (this.formNumber.$valid) {
         this.submitAnswer({label:this.item.label,answer:res});

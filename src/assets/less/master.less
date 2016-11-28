@@ -93,7 +93,7 @@
       font-weight: 800;
       letter-spacing: .04em;
       text-align: center;
-      text-transform: uppercase;
+      text-transform: none;
       background: #FFF;
       color: @color-abibao-blue;
       padding: 34px;
@@ -232,4 +232,22 @@
 @keyframes loading-bar-spinner {
   0%   { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+@media screen and (max-width: 640px) {
+   header h1 {
+   	font-size: 1.5rem!important;
+   }
+ 	   header h2 {
+   	font-size: 1rem!important;
+   }
+   #header-wrapper img {
+	    height: 25px;
+	}
+	.form-wrapper header {
+		padding: 40px 10%;
+	}
+  .button {
+    padding: 14px!important;
+  }
 }
