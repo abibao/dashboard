@@ -8,22 +8,26 @@ RUN mkdir -p /usr/app && \
 
 WORKDIR /usr/app
 
+COPY start-server.sh /usr/app/
 COPY index.js /usr/app/
 COPY package.json /usr/app/
 COPY gulpfile.js /usr/app/
 ADD src /usr/app/src
 
-RUN apk add --update make bash git libpng-dev gcc g++ python && \
-    npm install && \
+RUN apk add --update make bash git libpng-dev gcc g++ python
+
+RUN npm install && \
     npm install -g gulp bower && \
     gulp build && \
-    rm -rf src && \
-    rm -rf node_modules && \
-    npm uninstall -g gulp bower && \
-    npm install --production && \
+    npm uninstall -g gulp bower
+
+RUN npm prune --production && \
     npm uninstall -g npm && \
-    apk del make bash git libpng-dev gcc g++ python && \
-    rm -rf /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp
+    apk del autoconf automake make libtool nasm bash git libpng-dev gcc g++ python && \
+    rm -rf /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp && \
+    rm -rf src/
+
+RUN chmod + start-server.sh
 
 EXPOSE 80
-CMD node index.js
+CMD sh start-server.sh
