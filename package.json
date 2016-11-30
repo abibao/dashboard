@@ -25,7 +25,8 @@
     "node": "~6"
   },
   "dependencies": {
-    "http-server": "0.9.0",
+    "hapi": "16.0.0",
+    "inert": "4.0.3",
     "nconf": "0.8.4"
   },
   "devDependencies": {
