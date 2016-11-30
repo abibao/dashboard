@@ -26,7 +26,5 @@ RUN npm prune --production && \
     rm -rf /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp && \
     rm -rf src/
 
-RUN chmod + start-server.sh
-
 EXPOSE 80
 CMD node index.js
