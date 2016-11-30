@@ -9,7 +9,6 @@ RUN mkdir -p /usr/app && \
 WORKDIR /usr/app
 
 COPY start-server.sh /usr/app/
-COPY index.js /usr/app/
 COPY package.json /usr/app/
 COPY gulpfile.js /usr/app/
 ADD src /usr/app/src
