@@ -5,7 +5,7 @@
     .module('app')
     .controller('charityChoiceCtrl', charityChoiceCtrl)
 
-  function charityChoiceCtrl ($rootScope, $scope, abibaoApiSvc, charities, $state) {
+  function charityChoiceCtrl ($rootScope, $scope, abibaoApiSvc, charities, $state, getNextState) {
     var submited = false
     $scope.charities = charities
     $scope.selectCharity = selectCharity
@@ -23,7 +23,9 @@
       if (!submited) {
         submited = true
         abibaoApiSvc.charity.set({charity: $scope.selected_charity.urn}, function (res) {
-          $state.go('thank-you-1')
+          getNextState().then(function(nextState) {
+            $state.go(nextState.stateName, nextState.params);
+          });
         })
       }
     }

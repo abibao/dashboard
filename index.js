@@ -8,8 +8,8 @@ var nconf = require('nconf')
 nconf.argv().env().file({ file: 'nconf-env.json' })
 
 var options = {
-  host: nconf.get('ABIBAO_DASHBOARD_EXPOSE_IP'),
-  port: nconf.get('ABIBAO_DASHBOARD_EXPOSE_PORT')
+  host: nconf.get('ABIBAO_DASHBOARD_EXPOSE_IP') || '0.0.0.0',
+  port: nconf.get('ABIBAO_DASHBOARD_EXPOSE_PORT') || 80
 }
 
 var server = new Hapi.Server({

@@ -14,6 +14,8 @@ angular
     }, function(error) {
     });
     $scope.shareFacebook = function() {
+      // https://www.npmjs.com/package/angular-socialshare
+      // https://www.facebook.com/sharer/sharer.php?u=http://startupmarketfit.com/livresque/
       window.location = 'https://www.facebook.com/abibao.for.awesome.people/'
     }
   }
