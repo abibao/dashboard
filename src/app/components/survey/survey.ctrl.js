@@ -5,7 +5,10 @@
       .module('app')
       .controller('surveyCtrl', surveyCtrl);
 
-  function surveyCtrl(Analytics, $rootScope, $scope, survey, abibaoApiSvc, $stateParams, $state, getNextState) {
+  function surveyCtrl(Analytics, $rootScope, $scope, $anchorScroll, survey, abibaoApiSvc, $stateParams, $state, getNextState) {
+      $rootScope.$on("$locationChangeSuccess", function(){
+        $anchorScroll();
+      });
       Analytics.pageView();
       survey.items.sort(function(a, b) {
         return a.position - b.position;
@@ -15,6 +18,7 @@
       $scope.screenWelcomeContent = survey.screenWelcomeContent;
       $scope.hideScreenWelcomeContent = function() {
         $scope.screenWelcomeContent = '';
+        $anchorScroll();
       }
       $scope.progress = {
           max: survey.items.length,
