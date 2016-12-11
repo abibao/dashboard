@@ -18,42 +18,49 @@
       var nextState = {
         params : {}
       };
-      if (!globalInfos.abibaoCompleted.length) {
+      // 1) on a abibao position 1 en abibaoInProgress
+      if (globalInfos.abibaoInProgress.length > 0 && globalInfos.abibaoInProgress[0].position === 1) {
         nextState.stateName = 'survey';
         nextState.params.urn = globalInfos.abibaoInProgress[0].urn;
+        return nextState;
       }
-      else {
+      // 2) on a des surveysInProgress
+      if (globalInfos.surveysInProgress.length > 0) {
         if (!globalInfos.currentCharity) {
-          if (globalInfos.abibaoCompleted.length == 1) {
-            nextState.stateName = 'charitychoice';
-          }
-          else if(globalInfos.abibaoInProgress.length){
-            nextState.stateName = 'survey';
-            nextState.params.urn = globalInfos.abibaoInProgress[0].urn;
-          }
-          else {
-            nextState.stateName = 'all-finished';
-          }
+          nextState.stateName = 'charitychoice';
+          return nextState;
         }
-        else {
-          if (globalInfos.surveysInProgress.length) {
-            nextState.stateName = 'survey';
-            nextState.params.urn = globalInfos.surveysInProgress[0].urn;
-          }
-          else if(globalInfos.abibaoInProgress.length){
-            nextState.stateName = 'survey';
-            nextState.params.urn = globalInfos.abibaoInProgress[0].urn;
-          }
-          else if (globalInfos.abibaoCompleted.length == 2 && !globalInfos.surveysCompleted.length) {
-            nextState.stateName = 'email-sended';
-          }
-          else {
-            nextState.params.urn = false;
-            nextState.stateName = 'all-finished';
-          }
-        }
+        nextState.stateName = 'survey';
+        nextState.params.urn = globalInfos.surveysInProgress[0].urn;
+        return nextState;
       }
-      return nextState;
+      // 3) on a abibao position 2 en abibaoInProgress
+      if (globalInfos.abibaoInProgress.length > 0 && globalInfos.abibaoInProgress[0].position === 2) {
+        if (!globalInfos.currentCharity) {
+          nextState.stateName = 'charitychoice';
+          return nextState;
+        }
+        nextState.stateName = 'survey';
+        nextState.params.urn = globalInfos.abibaoInProgress[0].urn;
+        return nextState;
+      }
+      // 4) on a abibaoInProgress non vide, alors on le joue (forcément position 3 et 4)
+      if (globalInfos.abibaoInProgress.length > 0) {
+        nextState.stateName = 'survey';
+        nextState.params.urn = globalInfos.abibaoInProgress[0].urn;
+        return nextState;
+      }
+      // 5) on a abibaoInProgress vide et surveysInProgress vide
+      // 5.1) abibaoCompleted == 2 alors 'email-sended'
+      if (globalInfos.abibaoCompleted.length === 2) {
+        nextState.stateName = 'email-sended';
+        return nextState;
+      }
+      // 5.2) abibaoCompleted == 4 alors 'all-finished'
+      if (globalInfos.abibaoCompleted.length === 4) {
+        nextState.stateName = 'all-finished';
+        return nextState;
+      }
     }
 
     return getNextState;
